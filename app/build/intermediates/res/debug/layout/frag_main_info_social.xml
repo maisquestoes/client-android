@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/lv_main_social"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         />
+
+</LinearLayout><!-- From: file:/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/src/main/res/layout/frag_main_info_social.xml -->

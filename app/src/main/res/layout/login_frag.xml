@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="20dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/logo_mq"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_login_user"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/et_login_frag_user"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/str_login_user"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_login_pass"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/et_login_frag_pass"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/str_login_pass"/>
+
+        <Button
+            android:id="@+id/btn_login_mq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log in with +Questões"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"/>
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btn_login_fb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

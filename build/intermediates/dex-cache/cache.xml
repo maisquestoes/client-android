@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/helio/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.17/f417d7f776d1ee5858fc04d9362aa45e9bedd26b/library-1.0.17.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f417d7f776d1ee5858fc04d9362aa45e9bedd26b">
+        <dex dex="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/pre-dexed/debug/library-1.0.17-063f34a68362b8acbb636bf6d4c454b477f456df.jar" />
+    </item>
+
+</items>
