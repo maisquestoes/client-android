@@ -2,12 +2,14 @@ package progamaro.maisquestoes_v2;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 /**
  * Created by helio on 22/07/15.
@@ -46,10 +48,18 @@ public class MainActivity_Drawer extends AppCompatActivity {
                 _drawer_layout.closeDrawers();
 
                 switch (menuItem.getItemId()){
-
+                    case R.id.mnu_first_fragment:
+                        Toast.makeText(getApplicationContext(), "fragment User Indo", Toast.LENGTH_SHORT).show();
+                        Fragment_user_info fragment_user_info = new Fragment_user_info();
+                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, fragment_user_info);
+                        fragmentTransaction.commit();
+                        return true;
+                    default:
+                        Toast.makeText(getApplicationContext(), "something", Toast.LENGTH_SHORT).show();
+                        return true;
                 }
 
-                return false;
             }
         });
     }
