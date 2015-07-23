@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/mnu_first_fragment"
+            android:title="First Fragment"
+            />
+
+        <item
+            android:id="@+id/mnu_second_fragment"
+            android:title="First Fragment"
+            />
+
+        <item
+            android:id="@+id/mnu_third_fragment"
+            android:title="First Fragment"
+            />
+
+        <item android:title="@string/mnu_subitems">
+            <menu>
+                <item
+                    android:title="Sub Item 1"
+                    />
+
+                <item
+                    android:title="Sub Item 2"
+                    />
+            </menu>
+        </item>
+
+    </group>
+</menu>

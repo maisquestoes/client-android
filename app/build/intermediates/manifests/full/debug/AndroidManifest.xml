@@ -20,7 +20,7 @@
             android:name="progamaro.maisquestoes_v2.MainActivity"
             android:label="@string/ac_main" />
         <activity
-            android:name="progamaro.maisquestoes_v2.Login"
+            android:name="progamaro.maisquestoes_v2.MainActivity_Drawer"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
