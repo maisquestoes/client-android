@@ -2,60 +2,60 @@
 <items version="2" >
 
     <item
-        jar="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jar="/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/pre-dexed/debug/classes-3299444e6137522cb10018bf650f8d3da22997e5.jar" />
+        <dex dex="/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/pre-dexed/debug/classes-d0838648e275d8ff0ef3e33d517b3e1257b15be9.jar" />
     </item>
     <item
-        jar="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-30f1abe9e3426f4f2bd4ba2873f9df3155caff47.jar" />
-    </item>
-    <item
-        jar="/Users/helio/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.17/f417d7f776d1ee5858fc04d9362aa45e9bedd26b/library-1.0.17.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f417d7f776d1ee5858fc04d9362aa45e9bedd26b">
-        <dex dex="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/pre-dexed/debug/library-1.0.17-063f34a68362b8acbb636bf6d4c454b477f456df.jar" />
-    </item>
-    <item
-        jar="/Users/helio/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-e8a4385c7375849bb4e1971f669fb5e6e25e5765.jar" />
-    </item>
-    <item
-        jar="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/pre-dexed/debug/classes-6350513b3acced78263f8e602b4d36a72ea43258.jar" />
-    </item>
-    <item
-        jar="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.1.0/jars/classes.jar"
+        jar="/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.1.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="a78bfd2ec508b123ee7c03f4006ba7996ef9a8dc">
-        <dex dex="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/pre-dexed/debug/classes-389516d6d50f4f8e21887b514ee141bd1f8af4c8.jar" />
+        <dex dex="/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/pre-dexed/debug/classes-d67d01d3bfdf676e16446704146ecfaef4db3044.jar" />
     </item>
     <item
-        jar="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/jars/classes.jar"
+        jar="/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
-        <dex dex="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/pre-dexed/debug/classes-d759af862ca44e964ef81dd817fb2a0c995b84d5.jar" />
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/pre-dexed/debug/classes-137637d1fdfd2bc6028c18c5dcfeeee46f671a98.jar" />
     </item>
     <item
-        jar="/Users/helio/Documents/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jar="/Users/andremiranda/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-e3580632d7c33f49306b6e9c66ddd3cbb2ebc29b.jar" />
+        <dex dex="/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-1ca361657fec871f827fc14b893800d22ee12646.jar" />
+    </item>
+    <item
+        jar="/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-f3a0294e94d7792b91d40dc2830079d5cbf4c339.jar" />
+    </item>
+    <item
+        jar="/Users/andremiranda/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-50c07e2d9d42eba6cb4ceb475566cf33e3eca91d.jar" />
+    </item>
+    <item
+        jar="/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
+        <dex dex="/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/pre-dexed/debug/classes-9b097ddf45dd00837285caf840d85693affa0ced.jar" />
+    </item>
+    <item
+        jar="/Users/andremiranda/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.17/f417d7f776d1ee5858fc04d9362aa45e9bedd26b/library-1.0.17.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f417d7f776d1ee5858fc04d9362aa45e9bedd26b">
+        <dex dex="/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/pre-dexed/debug/library-1.0.17-21e366ce4e6d18381a10edc81148643d6f31ded8.jar" />
     </item>
 
 </items>
