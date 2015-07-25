@@ -26,7 +26,7 @@ import com.facebook.login.widget.LoginButton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import domain.User;
+import progamaro.maisquestoes_v2.domain.User;
 
 /**
  * Created by helio on 16/07/15.

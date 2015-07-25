@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.1.0/res/values-ta/values.xml -->
+    <!-- From: file:/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.1.0/res/values-ta/values.xml -->
     <eat-comment/>
     <string name="messenger_send_button_text">அனுப்பு</string>
 </resources>

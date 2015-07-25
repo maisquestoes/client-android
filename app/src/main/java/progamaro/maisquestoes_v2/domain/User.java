@@ -1,4 +1,4 @@
-package domain;
+package progamaro.maisquestoes_v2.domain;
 
 /**
  * Created by helio on 16/07/15.

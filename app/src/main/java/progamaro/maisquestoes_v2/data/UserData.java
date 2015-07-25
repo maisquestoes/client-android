@@ -1,4 +1,4 @@
-package data;
+package progamaro.maisquestoes_v2.data;
 
 import android.content.Context;
 import android.widget.Toast;

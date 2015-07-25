@@ -3,12 +3,11 @@ package progamaro.maisquestoes_v2;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
-import domain.User;
+import progamaro.maisquestoes_v2.domain.User;
 
 /**
  * Created by helio on 18/07/15.
