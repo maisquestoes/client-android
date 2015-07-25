@@ -11,4 +11,4 @@
         android:name="progamaro.maisquestoes_v2.Login_Frag"
         android:layout_gravity="center|center_vertical"
         android:layout_centerInParent="true"/>
-</RelativeLayout><!-- From: file:/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/src/main/res/layout/login.xml -->
+</RelativeLayout><!-- From: file:/Users/andremiranda/Documents/maisQuestoes/client-android/client-android/app/src/main/res/layout/login.xml -->
