@@ -40,7 +40,7 @@ public class VolleyApplication extends Application {
         String _userPref = _settings.getString("prefUserName", "");
         if (!_userPref.isEmpty()) {
             User _user = new User();
-            _user.name = _settings.getString("prefName", "");;
+            _user.displayName = _settings.getString("prefName", "");;
             _user.username = _settings.getString("prefUserName", "");;
             _user.id = "";
             _user.email = _settings.getString("prefUserEmail", "");;

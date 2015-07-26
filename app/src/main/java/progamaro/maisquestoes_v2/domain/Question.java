@@ -15,5 +15,4 @@ public class Question {
     }
     private Role role;
 
-
 }

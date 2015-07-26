@@ -7,24 +7,30 @@ public class User {
 
     public String id;
     public String username;
-    public String name;
+    public String displayName;
     public String email;
     public String gender;
+    private String created;
+    private enum provider {
+        local, facebook
+    }
+    private boolean verified;
+    private String accessToken;
 
     public User() {
     }
 
-    public User(String id, String name, String email, String gender) {
+    public User(String id, String displayName, String email, String gender) {
         this.id = id;
-        this.name = name;
+        this.displayName = displayName;
         this.email = email;
         this.gender = gender;
     }
 
-    public User(String id, String username, String name, String email, String gender) {
+    public User(String id, String username, String displayName, String email, String gender) {
         this.id = id;
         this.username = username;
-        this.name = name;
+        this.displayName = displayName;
         this.email = email;
         this.gender = gender;
     }

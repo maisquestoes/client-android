@@ -101,9 +101,9 @@ public class Login extends Activity {
                                             jsonObject.getString("email"),
                                             jsonObject.getString("gender")
                                                             );
-                                    Toast.makeText(Login.this, "Hello, " + user.name, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, "Hello, " + user.displayName, Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(Login.this, MainActivity.class));
-                                    Log.v("FACEBOOK", "Info: id: " + user.id + "; name: " + user.name + "; email: " + user.email + "; gender: " + user.gender);
+                                    Log.v("FACEBOOK", "Info: id: " + user.id + "; name: " + user.displayName + "; email: " + user.email + "; gender: " + user.gender);
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -143,11 +143,11 @@ public class Login extends Activity {
                         JSONObject jsonObject = response.getJSONObject("o");
                         User _user = new User();
                         _user.username = jsonObject.getString("Usuario");
-                        _user.name = jsonObject.getString("Nome");
+                        _user.displayName = jsonObject.getString("Nome");
                         _user.email = jsonObject.getString("Email");
 
                         VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefUserName", _user.username);
-                        VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefName", _user.name);
+                        VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefName", _user.displayName);
                         VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefUserEmail", _user.email);
 
                     } catch (JSONException e) {
@@ -155,7 +155,7 @@ public class Login extends Activity {
                     }
                 } else {
                     Toast.makeText(Login.this, "username: " + _userLogged.username +
-                            " name: " + _userLogged.name +
+                            " name: " + _userLogged.displayName +
                             " email: " + _userLogged.email, Toast.LENGTH_SHORT).show();
                 }
 
