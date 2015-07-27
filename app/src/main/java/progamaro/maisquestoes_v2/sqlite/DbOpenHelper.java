@@ -11,19 +11,37 @@ public class DbOpenHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "maisQuestoes";
     private static final int DATABASE_VERSION = 2;
-    private static final String DICTIONARY_TABLE_CREATE = "teste";
+
+    private static final StringBuilder ANSWER_TABLE_CREATE = new StringBuilder()
+            .append("CREATE TABLE ANSWER ")
+            .append("(IdAnswer integer, Description text, IsCorrect numeric, ImagePath text);");
+
+    private static final StringBuilder QUESTION_TABLE_CREATE = new StringBuilder()
+            .append("CREATE TABLE QUESTION ")
+            .append("(Query text, Text text, Subject text);");
 
     DbOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL(DICTIONARY_TABLE_CREATE);
+    public static StringBuilder getQuestionTableCreate() {
+        return QUESTION_TABLE_CREATE;
+    }
+
+    public static StringBuilder getAnswerTableCreate() {
+        return ANSWER_TABLE_CREATE;
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(ANSWER_TABLE_CREATE.toString());
+        db.execSQL(QUESTION_TABLE_CREATE.toString());
+    }
 
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        db.execSQL("DROP TABLE IF EXISTS QUESTION");
+        db.execSQL("DROP TABLE IF EXISTS ANSWER");
+        onCreate(db);
     }
 }
