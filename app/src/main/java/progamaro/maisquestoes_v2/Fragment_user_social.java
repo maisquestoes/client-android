@@ -9,8 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import progamaro.maisquestoes_v2.sqlite.DbOpenHelper;
+import progamaro.maisquestoes_v2.sqlite.DbQuestionHelper;
 
 /**
  * Created by helio on 17/07/15.
@@ -22,7 +29,12 @@ public class Fragment_user_social extends Fragment {
         final FragmentManager fm = getActivity().getSupportFragmentManager();
 
         final String[] lista = new String[]{"Hélio Feliciano", "André Miranda", "Grécio Beline", "Xico"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, lista);
+
+        DbQuestionHelper qHelper = new DbQuestionHelper(new DbOpenHelper(getActivity()));
+
+        ListAdapter adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, qHelper.GetQuestions());
+
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, lista);
         ListView lv_main_social = (ListView)view.findViewById(R.id.lv_main_social);
         lv_main_social.setAdapter(adapter);
 

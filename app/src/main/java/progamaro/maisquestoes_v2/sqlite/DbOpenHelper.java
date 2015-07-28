@@ -20,7 +20,7 @@ public class DbOpenHelper extends SQLiteOpenHelper {
             .append("CREATE TABLE QUESTION ")
             .append("(Query text, Text text, Subject text);");
 
-    DbOpenHelper(Context context) {
+    public DbOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
