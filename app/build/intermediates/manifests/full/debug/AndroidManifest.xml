@@ -20,7 +20,10 @@
             android:name="progamaro.maisquestoes_v2.MainActivity"
             android:label="@string/ac_main" />
         <activity
-            android:name="progamaro.maisquestoes_v2.MainActivity_Drawer"
+            android:name="progamaro.maisquestoes_v2.Login"
+            android:label="@string/ac_login" />
+        <activity
+            android:name="progamaro.maisquestoes_v2.Splash_screen"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +31,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="progamaro.maisquestoes_v2.MainActivity_Drawer"
+            android:label="Mais Questões" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"

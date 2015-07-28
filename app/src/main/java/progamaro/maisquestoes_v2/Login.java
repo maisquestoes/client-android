@@ -82,7 +82,7 @@ public class Login extends Activity {
         accessToken = AccessToken.getCurrentAccessToken();
 
         if (accessToken != null){
-            startActivity(new Intent(Login.this, MainActivity.class));
+            startActivity(new Intent(Login.this, MainActivity_Drawer.class));
         }
 
         btn_login_fb.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -101,9 +101,9 @@ public class Login extends Activity {
                                             jsonObject.getString("email"),
                                             jsonObject.getString("gender")
                                                             );
-                                    Toast.makeText(Login.this, "Hello, " + user.displayName, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, "Hello, " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(Login.this, MainActivity.class));
-                                    Log.v("FACEBOOK", "Info: id: " + user.id + "; name: " + user.displayName + "; email: " + user.email + "; gender: " + user.gender);
+                                    Log.v("FACEBOOK", "Info: id: " + user.getId() + "; name: " + user.getDisplayName() + "; email: " + user.getEmail() + "; gender: " + user.getGender());
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -142,21 +142,21 @@ public class Login extends Activity {
                     try {
                         JSONObject jsonObject = response.getJSONObject("o");
                         User _user = new User();
-                        _user.username = jsonObject.getString("Usuario");
-                        _user.displayName = jsonObject.getString("Nome");
-                        _user.email = jsonObject.getString("Email");
+                        _user.setUsername(jsonObject.getString("Usuario"));
+                        _user.setDisplayName(jsonObject.getString("Nome"));
+                        _user.setEmail(jsonObject.getString("Email"));
 
-                        VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefUserName", _user.username);
-                        VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefName", _user.displayName);
-                        VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefUserEmail", _user.email);
+                        VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefUserName", _user.getUsername());
+                        VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefName", _user.getDisplayName());
+                        VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefUserEmail", _user.getEmail());
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 } else {
-                    Toast.makeText(Login.this, "username: " + _userLogged.username +
-                            " name: " + _userLogged.displayName +
-                            " email: " + _userLogged.email, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "username: " + _userLogged.getUsername() +
+                            " name: " + _userLogged.getDisplayName() +
+                            " email: " + _userLogged.getEmail(), Toast.LENGTH_SHORT).show();
                 }
 
                 // Set user in preferences logged

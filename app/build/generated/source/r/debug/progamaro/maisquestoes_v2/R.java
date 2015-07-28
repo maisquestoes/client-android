@@ -2410,8 +2410,9 @@ containing a value of this type.
         public static final int select_dialog_item_material=0x7f04003b;
         public static final int select_dialog_multichoice_material=0x7f04003c;
         public static final int select_dialog_singlechoice_material=0x7f04003d;
-        public static final int support_simple_spinner_dropdown_item=0x7f04003e;
-        public static final int toolbar=0x7f04003f;
+        public static final int splash_screen=0x7f04003e;
+        public static final int support_simple_spinner_dropdown_item=0x7f04003f;
+        public static final int toolbar=0x7f040040;
     }
     public static final class menu {
         public static final int drawer_view=0x7f0d0000;
@@ -2420,8 +2421,9 @@ containing a value of this type.
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
         public static final int ic_menu=0x7f030001;
-        public static final int logo_mq=0x7f030002;
-        public static final int logo_mq2=0x7f030003;
+        public static final int logo_maisquestoes=0x7f030002;
+        public static final int logo_mq=0x7f030003;
+        public static final int logo_mq2=0x7f030004;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f060000;
@@ -2441,33 +2443,34 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with=0x7f06000b;
         public static final int abc_shareactionprovider_share_with_application=0x7f06000c;
         public static final int abc_toolbar_collapse_description=0x7f06001b;
-        public static final int ac_main=0x7f06001c;
-        public static final int action_settings=0x7f06001d;
-        public static final int app_name=0x7f06001e;
-        public static final int appbar_scrolling_view_behavior=0x7f06001f;
+        public static final int ac_login=0x7f06001c;
+        public static final int ac_main=0x7f06001d;
+        public static final int action_settings=0x7f06001e;
+        public static final int app_name=0x7f06001f;
+        public static final int appbar_scrolling_view_behavior=0x7f060020;
         public static final int com_facebook_image_download_unknown_error=0x7f06000e;
         public static final int com_facebook_internet_permission_error_message=0x7f06000f;
         public static final int com_facebook_internet_permission_error_title=0x7f060010;
-        public static final int com_facebook_like_button_liked=0x7f060020;
-        public static final int com_facebook_like_button_not_liked=0x7f060021;
+        public static final int com_facebook_like_button_liked=0x7f060021;
+        public static final int com_facebook_like_button_not_liked=0x7f060022;
         public static final int com_facebook_loading=0x7f060011;
         public static final int com_facebook_loginview_cancel_action=0x7f060012;
         public static final int com_facebook_loginview_log_in_button=0x7f060013;
-        public static final int com_facebook_loginview_log_in_button_long=0x7f060022;
+        public static final int com_facebook_loginview_log_in_button_long=0x7f060023;
         public static final int com_facebook_loginview_log_out_action=0x7f060014;
         public static final int com_facebook_loginview_log_out_button=0x7f060015;
         public static final int com_facebook_loginview_logged_in_as=0x7f060016;
         public static final int com_facebook_loginview_logged_in_using_facebook=0x7f060017;
-        public static final int com_facebook_send_button_text=0x7f060023;
-        public static final int com_facebook_share_button_text=0x7f060024;
-        public static final int com_facebook_tooltip_default=0x7f060025;
-        public static final int facebook_app_id=0x7f060026;
-        public static final int hello_world=0x7f060027;
+        public static final int com_facebook_send_button_text=0x7f060024;
+        public static final int com_facebook_share_button_text=0x7f060025;
+        public static final int com_facebook_tooltip_default=0x7f060026;
+        public static final int facebook_app_id=0x7f060027;
+        public static final int hello_world=0x7f060028;
         public static final int messenger_send_button_text=0x7f06000d;
-        public static final int mnu_subitems=0x7f060028;
-        public static final int status_bar_notification_info_overflow=0x7f060029;
-        public static final int str_login_pass=0x7f06002a;
-        public static final int str_login_user=0x7f06002b;
+        public static final int mnu_subitems=0x7f060029;
+        public static final int status_bar_notification_info_overflow=0x7f06002a;
+        public static final int str_login_pass=0x7f06002b;
+        public static final int str_login_user=0x7f06002c;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f080074;

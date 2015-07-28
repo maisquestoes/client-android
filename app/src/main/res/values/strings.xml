@@ -8,8 +8,11 @@
     <string name="facebook_app_id">371371396245977</string>
     <string name="str_login_user">Usuário</string>
     <string name="str_login_pass">Senha</string>
-    <string name="ac_main">Main</string>
 
     <!-- Menu (Left Drawer)-->
     <string name="mnu_subitems">Sub Items</string>
+
+    <!-- Activities -->
+    <string name="ac_main">Main</string>
+    <string name="ac_login">Login</string>
 </resources>
