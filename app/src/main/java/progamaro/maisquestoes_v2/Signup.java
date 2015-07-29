@@ -7,6 +7,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import progamaro.maisquestoes_v2.dto.SignupDTO;
 
 /**
@@ -44,6 +56,8 @@ public class Signup extends Activity {
 
                     _signupDTO.Validate(getApplicationContext());
 
+                    Signup_Register(_signupDTO);
+
                 } catch (Exception e) {
 
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
@@ -51,6 +65,53 @@ public class Signup extends Activity {
 
             }
         });
+    }
+
+    private void Signup_Register(final SignupDTO pSignup) {
+
+        String url = "http://api2.maisquestoes.com.br/auth/signup/";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+                    Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String,String>();
+                params.put("lastName", pSignup.lastName);
+                params.put("firstName", pSignup.firstName);
+                params.put("email", pSignup.email);
+                params.put("username", pSignup.username);
+
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String,String>();
+                //params.put("Content-Type", "application/json");
+
+                return params;
+            }
+
+            @Override
+            public String getBodyContentType() {
+
+                return "application/x-www-form-urlencoded";
+            }
+        };
+        VolleyApplication.getInstance().getRequestQueue().add(request);
     }
 
     private void init() {

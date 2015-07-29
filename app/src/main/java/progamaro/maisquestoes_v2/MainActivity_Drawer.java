@@ -2,6 +2,7 @@ package progamaro.maisquestoes_v2;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -15,11 +16,15 @@ import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 
 /**
  * Created by helio on 22/07/15.
  */
-public class MainActivity_Drawer extends AppCompatActivity {
+public class MainActivity_Drawer extends AppCompatActivity
+        implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private NavigationView _navigation_view;
     private DrawerLayout _drawer_layout;
@@ -27,28 +32,33 @@ public class MainActivity_Drawer extends AppCompatActivity {
 
     private LoginButton btn_login_fb;
 
+    private GoogleApiClient _googleApiClient;
+    private Location _lastLocation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_layout);
 
+        buildGoogleApiClient();
+
         FacebookSdk.sdkInitialize(getApplicationContext());
 
-        _toolbar = (Toolbar)findViewById(R.id.toolbar);
+        _toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(_toolbar);
 
-        _drawer_layout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        _drawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         ActionBar _actionbar = getSupportActionBar();
         _actionbar.setHomeAsUpIndicator(R.mipmap.ic_menu);
         _actionbar.setDisplayHomeAsUpEnabled(true);
 
-        _navigation_view = (NavigationView)findViewById(R.id.navigation_view);
+        _navigation_view = (NavigationView) findViewById(R.id.navigation_view);
         _navigation_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
 
-                if (menuItem.isChecked()){
+                if (menuItem.isChecked()) {
                     menuItem.setChecked(false);
                 } else {
                     menuItem.setChecked(true);
@@ -56,7 +66,7 @@ public class MainActivity_Drawer extends AppCompatActivity {
 
                 _drawer_layout.closeDrawers();
 
-                switch (menuItem.getItemId()){
+                switch (menuItem.getItemId()) {
                     case R.id.mnu_first_fragment:
                         Toast.makeText(getApplicationContext(), "fragment User Indo", Toast.LENGTH_SHORT).show();
                         Fragment_user_info fragment_user_info = new Fragment_user_info();
@@ -96,7 +106,7 @@ public class MainActivity_Drawer extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 _drawer_layout.openDrawer(GravityCompat.START);
                 return true;
@@ -114,5 +124,36 @@ public class MainActivity_Drawer extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         finish();
+    }
+
+    private synchronized void buildGoogleApiClient() {
+        _googleApiClient = new GoogleApiClient.Builder(MainActivity_Drawer.this)
+                .addConnectionCallbacks(MainActivity_Drawer.this)
+                .addOnConnectionFailedListener(MainActivity_Drawer.this)
+                .addApi(LocationServices.API)
+                .build();
+    }
+
+    // Methods implements by GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener
+    @Override
+    public void onConnected(Bundle connectionHint) {
+        _lastLocation = LocationServices.FusedLocationApi.getLastLocation(_googleApiClient);
+        if (_lastLocation != null) {
+            Toast.makeText(MainActivity_Drawer.this,
+                    "Latitude: " + String.valueOf(_lastLocation.getLatitude()) +
+                            "Longitude: " + String.valueOf(_lastLocation.getLongitude()),
+                    Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
     }
 }
