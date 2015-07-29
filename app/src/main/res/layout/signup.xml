@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_singup_username"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/str_singup_username"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_singup_firstname"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/str_singup_firstname"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_singup_lastname"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/str_singup_lastname"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_singup_email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/str_singup_email"
+            android:inputType="textEmailAddress"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_singup_pass"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/str_singup_pass"
+            android:inputType="textPassword"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_singup_confirmpass"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/str_singup_confirmpass"
+            android:inputType="textPassword"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_singup_showpass" />
+
+    <Button
+        android:id="@+id/btn_signup_register"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/str_signup_register"/>
+
+
+</LinearLayout>

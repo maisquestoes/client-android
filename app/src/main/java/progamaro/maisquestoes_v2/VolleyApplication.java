@@ -16,6 +16,9 @@ public class VolleyApplication extends Application {
 
     private static VolleyApplication sInstance;
     private RequestQueue mRequestQueue;
+    public static enum provider {
+        local, facebook
+    }
 
     @Override
     public void onCreate() {
@@ -57,6 +60,13 @@ public class VolleyApplication extends Application {
         SharedPreferences.Editor editor = _preferences.edit();
         editor.putString(pPref, pValue);
         editor.commit();
+    }
+
+    public static void clearSharedPreferences(Context ctx, String pPREF_NAME, String pPref){
+        SharedPreferences _preferences = ctx.getSharedPreferences(pPREF_NAME, 0);
+        SharedPreferences.Editor _editor = _preferences.edit();
+        _editor.remove(pPref);
+        _editor.commit();
     }
 
 }

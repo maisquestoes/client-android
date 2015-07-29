@@ -31,10 +31,11 @@ public class Splash_screen extends Activity {
                 }finally {
                     // Check how provider (facebook or local)
                     sharedPreferences = getSharedPreferences("LoginPreferences", Context.MODE_PRIVATE);
-                    String provider = sharedPreferences.getString("provider", "");
+                    String provider = sharedPreferences.getString("prefUserProvider", "");
                     if (provider.isEmpty()){
                         // go login screen
-                        Intent it = new Intent(Splash_screen.this, Login.class);
+                        //Intent it = new Intent(Splash_screen.this, Login.class);
+                        Intent it = new Intent(Splash_screen.this, Signup.class);
                         startActivity(it);
                     } else {
                         // check facebook or local

@@ -1,5 +1,7 @@
 package progamaro.maisquestoes_v2;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -11,6 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.facebook.FacebookSdk;
+import com.facebook.login.widget.LoginButton;
+
 /**
  * Created by helio on 22/07/15.
  */
@@ -20,10 +25,14 @@ public class MainActivity_Drawer extends AppCompatActivity {
     private DrawerLayout _drawer_layout;
     private Toolbar _toolbar;
 
+    private LoginButton btn_login_fb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_layout);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
 
         _toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(_toolbar);
@@ -55,6 +64,10 @@ public class MainActivity_Drawer extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.content_frame, fragment_user_info);
                         fragmentTransaction.commit();
                         return true;
+                    case R.id.mnu_logout:
+                        Logout();
+
+                        return true;
                     default:
                         Toast.makeText(getApplicationContext(), "something", Toast.LENGTH_SHORT).show();
                         return true;
@@ -62,6 +75,23 @@ public class MainActivity_Drawer extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void Logout() {
+        // get provider shared preferences
+        SharedPreferences _preferences = getSharedPreferences("LoginPreferences", 0);
+        String provider = _preferences.getString("prefUserProvider", "");
+
+        VolleyApplication.clearSharedPreferences(getApplicationContext(), "LoginPreferences", "prefUserName");
+        VolleyApplication.clearSharedPreferences(getApplicationContext(), "LoginPreferences", "prefName");
+        VolleyApplication.clearSharedPreferences(getApplicationContext(), "LoginPreferences", "prefUserEmail");
+        VolleyApplication.clearSharedPreferences(getApplicationContext(), "LoginPreferences", "prefUserProvider");
+
+        if (provider.equals(VolleyApplication.provider.facebook.toString())) {
+            // logout facebook TODO
+        }
+
+        startActivity(new Intent(MainActivity_Drawer.this, Login.class));
     }
 
     @Override
@@ -78,5 +108,11 @@ public class MainActivity_Drawer extends AppCompatActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 }

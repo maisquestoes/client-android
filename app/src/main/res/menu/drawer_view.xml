@@ -28,5 +28,10 @@
             </menu>
         </item>
 
+        <item
+            android:id="@+id/mnu_logout"
+            android:title="Logout"/>
+
+
     </group>
 </menu>

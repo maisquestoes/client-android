@@ -11,9 +11,16 @@ public class User {
     private String email;
     private String gender;
     private String created;
-    private enum provider {
-        local, facebook
+    private String provider;
+
+    public String getProvider() {
+        return provider;
     }
+
+    public void setProvider(String provider) {
+        this.provider = provider;
+    }
+
     private boolean verified;
     private String accessToken;
 

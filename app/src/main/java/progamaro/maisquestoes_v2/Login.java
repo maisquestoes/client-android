@@ -145,10 +145,12 @@ public class Login extends Activity {
                         _user.setUsername(jsonObject.getString("Usuario"));
                         _user.setDisplayName(jsonObject.getString("Nome"));
                         _user.setEmail(jsonObject.getString("Email"));
+                        _user.setProvider(VolleyApplication.provider.local.toString());
 
                         VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefUserName", _user.getUsername());
                         VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefName", _user.getDisplayName());
                         VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefUserEmail", _user.getEmail());
+                        VolleyApplication.setSharedPreferences(Login.this, "LoginPreferences", "prefUserProvider", _user.getProvider());
 
                     } catch (JSONException e) {
                         e.printStackTrace();
