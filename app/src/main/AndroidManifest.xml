@@ -16,6 +16,7 @@
         <activity android:name=".MainActivity" android:label="@string/ac_main" />
         <activity android:name=".Login" android:label="@string/ac_login" />
         <activity android:name=".Signup" android:label="@string/ac_signup" />
+        <activity android:name=".Start" android:label="@string/ac_login" />
         <activity
             android:name=".Splash_screen"
             android:label="@string/app_name" >
