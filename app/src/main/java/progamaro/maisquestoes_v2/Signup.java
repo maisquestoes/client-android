@@ -13,6 +13,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONObject;
 
@@ -70,15 +71,11 @@ public class Signup extends Activity {
     private void Signup_Register(final SignupDTO pSignup) {
 
         String url = "http://api2.maisquestoes.com.br/auth/signup/";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(String response) {
 
-                try {
-                    Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener(){
             @Override
@@ -93,6 +90,8 @@ public class Signup extends Activity {
                 params.put("firstName", pSignup.firstName);
                 params.put("email", pSignup.email);
                 params.put("username", pSignup.username);
+                params.put("password", "pass@@");
+
 
                 return params;
             }
@@ -101,15 +100,16 @@ public class Signup extends Activity {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String,String>();
                 //params.put("Content-Type", "application/json");
+                params.put("Content-Type","application/x-www-form-urlencoded");
 
                 return params;
             }
 
-            @Override
+            /*@Override
             public String getBodyContentType() {
 
                 return "application/x-www-form-urlencoded";
-            }
+            }*/
         };
         VolleyApplication.getInstance().getRequestQueue().add(request);
     }
