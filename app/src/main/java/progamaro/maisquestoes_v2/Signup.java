@@ -1,6 +1,7 @@
 package progamaro.maisquestoes_v2;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -70,16 +71,23 @@ public class Signup extends Activity {
 
     private void Signup_Register(final SignupDTO pSignup) {
 
+        final ProgressDialog _progress = new ProgressDialog(Signup.this);
+        _progress.setTitle("Cadastro");
+        _progress.setMessage("Aguarde...");
+        _progress.setIndeterminate(false);
+        _progress.show();
+
         String url = "http://api2.maisquestoes.com.br/auth/signup/";
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
+                _progress.dismiss();
                 Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error) {
+                _progress.dismiss();
                 Toast.makeText(getApplicationContext(), "error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }){

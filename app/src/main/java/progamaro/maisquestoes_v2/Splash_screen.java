@@ -34,8 +34,8 @@ public class Splash_screen extends Activity {
                     String provider = sharedPreferences.getString("prefUserProvider", "");
                     if (provider.isEmpty()){
                         // go login screen
-                        //Intent it = new Intent(Splash_screen.this, Login.class);
-                        Intent it = new Intent(Splash_screen.this, Signup.class);
+                        Intent it = new Intent(Splash_screen.this, Login.class);
+                        //Intent it = new Intent(Splash_screen.this, Signup.class);
                         startActivity(it);
                     } else {
                         // check facebook or local
