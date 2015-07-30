@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +50,7 @@ public class DbQuestionHelper {
         Question q1 = new Question();
         q1.setQuery("Query 1");
         q1.setText("Text1");
-        q1.setSubjects(new String[] {"subject1", "subject2"});
+        q1.setSubjects(new String[]{"subject1", "subject2"});
 
         Question q2 = new Question();
         q2.setQuery("Query 2");

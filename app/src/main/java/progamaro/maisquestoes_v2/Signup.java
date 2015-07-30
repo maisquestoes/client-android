@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import progamaro.maisquestoes_v2.dto.SignupDTO;
+import progamaro.maisquestoes_v2.helpers.Routes;
 
 /**
  * Created by helio on 28/07/15.
@@ -35,6 +36,7 @@ public class Signup extends Activity {
     private EditText et_singup_pass;
     private EditText et_singup_confirmpass;
     private Button btn_signup_register;
+    private ProgressDialog _progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,23 +73,18 @@ public class Signup extends Activity {
 
     private void Signup_Register(final SignupDTO pSignup) {
 
-        final ProgressDialog _progress = new ProgressDialog(Signup.this);
-        _progress.setTitle("Cadastro");
-        _progress.setMessage("Aguarde...");
-        _progress.setIndeterminate(false);
-        _progress.show();
+        startProgressBar();
 
-        String url = "http://api2.maisquestoes.com.br/auth/signup/";
-        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.POST, Routes.SIGNUP, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                _progress.dismiss();
+                _progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error) {
-                _progress.dismiss();
+                _progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), "error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }){
@@ -120,6 +117,14 @@ public class Signup extends Activity {
             }*/
         };
         VolleyApplication.getInstance().getRequestQueue().add(request);
+    }
+
+    private void startProgressBar(){
+        _progressDialog = new ProgressDialog(Signup.this);
+        _progressDialog.setTitle("Cadastro");
+        _progressDialog.setMessage("Aguarde...");
+        _progressDialog.setIndeterminate(false);
+        _progressDialog.show();
     }
 
     private void init() {

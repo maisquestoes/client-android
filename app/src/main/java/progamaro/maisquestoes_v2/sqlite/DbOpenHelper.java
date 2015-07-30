@@ -20,6 +20,10 @@ public class DbOpenHelper extends SQLiteOpenHelper {
             .append("CREATE TABLE QUESTION ")
             .append("(Query text, Text text, Subject text);");
 
+    private static final StringBuilder USER_TABLE_CREATE = new StringBuilder()
+            .append("CREATE TABLE USER ")
+            .append("(IdUser integer, Latitude text, Longitude text);");
+
     public DbOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -32,16 +36,22 @@ public class DbOpenHelper extends SQLiteOpenHelper {
         return ANSWER_TABLE_CREATE;
     }
 
+    public static StringBuilder getUserTableCreate() {
+        return USER_TABLE_CREATE;
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ANSWER_TABLE_CREATE.toString());
         db.execSQL(QUESTION_TABLE_CREATE.toString());
+        db.execSQL(USER_TABLE_CREATE.toString());
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS QUESTION");
         db.execSQL("DROP TABLE IF EXISTS ANSWER");
+        db.execSQL("DROP TABLE IF EXISTS USER");
         onCreate(db);
     }
 }

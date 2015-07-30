@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -20,6 +21,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.HttpMethod;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
@@ -131,6 +133,7 @@ public class Login extends Activity {
 
     private void Authenticate(final String pUserName, String pPass) {
         String url = "http://api.maisquestoes.com.br/usuario/autenticar/"+ pUserName + "/" + pPass;
+
         JsonObjectRequest request = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>(){
             @Override
             public void onResponse(JSONObject response) {
