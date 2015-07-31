@@ -44,8 +44,8 @@ public class Fragment_user_social extends Fragment {
 
                 String _name = lista[position];
 
-                Fragment_user_info fragment_user_info = (Fragment_user_info) fm.findFragmentById(R.id.frag_info_user);
-                fragment_user_info.setName(_name);
+                FragmentGps fragment_gps = (FragmentGps) fm.findFragmentById(R.id.frag_info_user);
+                fragment_gps.setName(_name);
 
                 //Toast.makeText(getActivity().getApplicationContext(), ""+position, Toast.LENGTH_LONG).show();
 

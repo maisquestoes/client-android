@@ -24,7 +24,7 @@
             android:id="@+id/frag_info_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:name="progamaro.maisquestoes_v2.Fragment_user_info"
+            android:name="progamaro.maisquestoes_v2.FragmentGps"
             android:layout_gravity="center_horizontal" />
 
     </LinearLayout>

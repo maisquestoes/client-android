@@ -2,7 +2,6 @@ package progamaro.maisquestoes_v2;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.location.Location;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -11,24 +10,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
 import com.facebook.login.widget.LoginButton;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationServices;
 
 /**
  * Created by helio on 22/07/15.
  */
-public class MainActivity_Drawer extends AppCompatActivity
-        implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+public class MainActivity_Drawer extends AppCompatActivity {
 
     private NavigationView _navigation_view;
     private DrawerLayout _drawer_layout;
@@ -36,49 +27,25 @@ public class MainActivity_Drawer extends AppCompatActivity
 
     private LoginButton btn_login_fb;
 
-    private GoogleApiClient _googleApiClient;
-    private Location _lastLocation;
-    private Location _currentLocation;
-    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 1000;
-    private LocationRequest _locationRequest;
-    private boolean _requestLocationUpdates = false;
-
     @Override
     protected void onStart() {
         super.onStart();
-        if (_googleApiClient != null){
-            _googleApiClient.connect();
-        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        stopLocationUpdates();
-    }
-
-    private void stopLocationUpdates() {
-        LocationServices.FusedLocationApi.removeLocationUpdates(_googleApiClient, MainActivity_Drawer.this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        checkPlayServices();
-        if (_googleApiClient.isConnected() && !_requestLocationUpdates){
-            startLocationUpdates();
-        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_layout);
-
-        if (checkPlayServices()) {
-            buildGoogleApiClient();
-            createLocationRequest();
-        }
 
         FacebookSdk.sdkInitialize(getApplicationContext());
 
@@ -107,9 +74,9 @@ public class MainActivity_Drawer extends AppCompatActivity
                 switch (menuItem.getItemId()) {
                     case R.id.mnu_first_fragment:
                         Toast.makeText(getApplicationContext(), "fragment User Indo", Toast.LENGTH_SHORT).show();
-                        Fragment_user_info fragment_user_info = new Fragment_user_info();
+                        FragmentGps fragmentGps = new FragmentGps();
                         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.content_frame, fragment_user_info);
+                        fragmentTransaction.replace(R.id.content_frame, fragmentGps);
                         fragmentTransaction.commit();
                         return true;
                     case R.id.mnu_logout:
@@ -164,88 +131,4 @@ public class MainActivity_Drawer extends AppCompatActivity
         finish();
     }
 
-    private synchronized void buildGoogleApiClient() {
-        _googleApiClient = new GoogleApiClient.Builder(MainActivity_Drawer.this)
-                .addConnectionCallbacks(MainActivity_Drawer.this)
-                .addOnConnectionFailedListener(MainActivity_Drawer.this)
-                .addApi(LocationServices.API)
-                .build();
-    }
-
-    private boolean checkPlayServices() {
-        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(MainActivity_Drawer.this);
-        if (resultCode != ConnectionResult.SUCCESS){
-            if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)){
-                GooglePlayServicesUtil.getErrorDialog(resultCode, this,
-                        PLAY_SERVICES_RESOLUTION_REQUEST).show();
-            } else {
-                Toast.makeText(getApplicationContext(),
-                        "This device is not supported.", Toast.LENGTH_LONG)
-                        .show();
-                //finish();
-            }
-            return false;
-        }
-        return true;
-    }
-
-    // Methods implements by GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener
-    @Override
-    public void onConnected(Bundle connectionHint) {
-        //displayLocation();
-
-        //if (_requestLocationUpdates){
-            startLocationUpdates();
-        //}
-    }
-
-    private void startLocationUpdates() {
-        LocationServices.FusedLocationApi.requestLocationUpdates(
-                _googleApiClient,
-                _locationRequest,
-                MainActivity_Drawer.this);
-    }
-
-    private void displayLocation() {
-        _lastLocation = LocationServices.FusedLocationApi.getLastLocation(_googleApiClient);
-        if (_lastLocation != null) {
-            Toast.makeText(MainActivity_Drawer.this,
-                    "Latitude: " + String.valueOf(_lastLocation.getLatitude()) +
-                            "Longitude: " + String.valueOf(_lastLocation.getLongitude()),
-                    Toast.LENGTH_LONG)
-                    .show();
-        }
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-        _googleApiClient.connect();
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-        Log.i("TESTE GPS", "Connection failed: ConnectionResult.getErrorCode() = "
-                + connectionResult.getErrorCode());
-    }
-
-    protected void createLocationRequest() {
-        _locationRequest = new LocationRequest();
-        _locationRequest.setInterval(3000);
-        _locationRequest.setFastestInterval(5000);
-        _locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        _currentLocation = location;
-        updateUI();
-    }
-
-    private void updateUI() {
-        Toast.makeText(MainActivity_Drawer.this,
-                "Latitude: " + String.valueOf(_currentLocation.getLatitude()) +
-                        "Longitude: " + String.valueOf(_currentLocation.getLongitude()),
-                Toast.LENGTH_LONG)
-                .show();
-    }
 }

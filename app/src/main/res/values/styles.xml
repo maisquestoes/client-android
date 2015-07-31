@@ -13,7 +13,7 @@
 
     </style>
 
-    <style name="start">
+    <style name="loginPreview">
         <item name="android:background">@color/primaryColor</item>
         <item name="android:padding">30dp</item>
     </style>

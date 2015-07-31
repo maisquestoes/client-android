@@ -107,8 +107,8 @@
     <color name="material_deep_teal_500">#ff009688</color>
     <!-- From: file:/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/src/main/res/values/colors.xml -->
     <eat-comment/>
-    <color name="primaryColor">#3F51B5</color>
-    <color name="primaryDarkColor">#303F9F</color>
+    <color name="primaryColor">#0091C4</color>
+    <color name="primaryDarkColor">#0079A1</color>
     <!-- From: file:/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <color name="primary_dark_material_dark">#ff000000</color>
@@ -500,6 +500,10 @@
     <string name="mr_media_route_controller_stop">Stop casting</string>
     <string name="mr_system_route_name">System</string>
     <string name="mr_user_route_category_name">Devices</string>
+    <!-- From: file:/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="msg_logging">Logando</string>
+    <string name="msg_wait">Aguarde um momento</string>
     <!-- From: file:/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
@@ -509,7 +513,10 @@
     <string name="store_picture_title">Save image</string>
     <!-- From: file:/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="str_login_enter">Entrar</string>
     <string name="str_login_pass">Senha</string>
+    <string name="str_login_preview_enter">Entrar</string>
+    <string name="str_login_preview_signup">Increver-se</string>
     <string name="str_login_user">Usuário</string>
     <string name="str_signup_register">Cadastrar</string>
     <string name="str_singup_confirmpass">Confirme a senha</string>
@@ -2046,6 +2053,14 @@
         <item name="android:drawableLeft">@null</item>
         <item name="android:textColor">#4b5164</item>
     </style>
+    <!-- From: file:/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="loginPreview">
+        <item name="android:background">@color/primaryColor</item>
+        <item name="android:padding">30dp</item>
+    </style>
+    <!-- From: file:/Users/helio/Dropbox/MaisQuestoes/MaisQuestoes_v2/Android/MaisQuestoes_v2/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.1.0/res/values/values.xml -->
+    <eat-comment/>
     <style name="tooltip_bubble_text">
 	    <item name="android:textColor">@android:color/white</item>
 	    <item name="android:gravity">left</item>
