@@ -25,7 +25,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="@string/str_login_user"
-            android:text="teste"/>
+            android:text="helio"/>
 
         <EditText
             android:id="@+id/et_login_frag_pass"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:hint="@string/str_login_pass"
-            android:text="teste4"/>
+            android:text="123456"/>
 
         <Button
             android:id="@+id/btn_login_mq"
