@@ -15,13 +15,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
 import progamaro.maisquestoes_v2.dto.SignupDTO;
+import progamaro.maisquestoes_v2.helpers.GsonHelper;
 import progamaro.maisquestoes_v2.helpers.Routes;
 
 /**
@@ -60,7 +65,7 @@ public class Signup extends Activity {
 
                     _signupDTO.Validate(getApplicationContext());
 
-                    Signup_Register(_signupDTO);
+                    Register(_signupDTO);
 
                 } catch (Exception e) {
 
@@ -71,34 +76,28 @@ public class Signup extends Activity {
         });
     }
 
-    private void Signup_Register(final SignupDTO pSignup) {
+    private void Register(final SignupDTO pSignup) throws JSONException {
 
         startProgressBar();
+
+        final String json = new Gson().toJson(pSignup);
 
         StringRequest request = new StringRequest(Request.Method.POST, Routes.SIGNUP, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 _progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error) {
                 _progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), "error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "error: "+error.getMessage(), Toast.LENGTH_LONG).show();
             }
         }){
             @Override
             protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String,String>();
-                params.put("lastName", pSignup.lastName);
-                params.put("firstName", pSignup.firstName);
-                params.put("email", pSignup.email);
-                params.put("username", pSignup.username);
-                params.put("password", "pass@@");
-
-
-                return params;
+                return GsonHelper.getParams(json);
             }
 
             @Override
