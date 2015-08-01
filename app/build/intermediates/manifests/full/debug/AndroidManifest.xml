@@ -41,7 +41,8 @@
             android:parentActivityName="progamaro.maisquestoes_v2.LoginPreview" />
         <activity
             android:name="progamaro.maisquestoes_v2.Signup"
-            android:label="@string/ac_signup" />
+            android:label="@string/ac_signup"
+            android:parentActivityName="progamaro.maisquestoes_v2.LoginPreview" />
         <activity
             android:name="progamaro.maisquestoes_v2.LoginPreview"
             android:label="@string/ac_login" />

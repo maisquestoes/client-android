@@ -36,7 +36,7 @@ MERGED from com.android.support:appcompat-v7:22.2.0:22:5
 MERGED from com.android.support:support-v4:22.2.0:22:5
 MERGED from com.facebook.android:facebook-android-sdk:4.1.0:28:5
 MERGED from com.android.support:support-v4:22.2.0:22:5
-MERGED from client-android:volley:unspecified:9:5
+MERGED from MaisQuestoes_v2:volley:unspecified:9:5
 MERGED from com.android.support:design:22.2.0:22:5
 MERGED from com.android.support:appcompat-v7:22.2.0:22:5
 MERGED from com.android.support:support-v4:22.2.0:22:5
@@ -152,6 +152,8 @@ ADDED from AndroidManifest.xml:17:9
 activity#progamaro.maisquestoes_v2.Signup
 ADDED from AndroidManifest.xml:18:9
 	android:label
+		ADDED from AndroidManifest.xml:18:85
+	android:parentActivityName
 		ADDED from AndroidManifest.xml:18:42
 	android:name
 		ADDED from AndroidManifest.xml:18:19
@@ -205,7 +207,7 @@ MERGED from com.android.support:appcompat-v7:22.2.0:20:5
 MERGED from com.android.support:support-v4:22.2.0:20:5
 MERGED from com.facebook.android:facebook-android-sdk:4.1.0:24:5
 MERGED from com.android.support:support-v4:22.2.0:20:5
-MERGED from client-android:volley:unspecified:7:5
+MERGED from MaisQuestoes_v2:volley:unspecified:7:5
 MERGED from com.android.support:design:22.2.0:20:5
 MERGED from com.android.support:appcompat-v7:22.2.0:20:5
 MERGED from com.android.support:support-v4:22.2.0:20:5

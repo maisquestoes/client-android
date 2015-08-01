@@ -14,8 +14,9 @@ gen/
 
 # Gradle files
 .gradle/
-build/
-/*/build/
+build
+/app/build/
+*/build/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -24,7 +25,11 @@ local.properties
 proguard/
 
 # Android Studio
+.idea/tasks.xml
+.idea/vcs.xml
+.idea/workspace.xml
 .idea/
+.idea/libraries
 .gradle
 /*/local.properties
 /*/out
@@ -39,8 +44,6 @@ proguard/
 # Log Files
 *.log
 
-.idea/workspace.xml
-
 .gradle/2.4/taskArtifacts/cache.properties.lock
 
 .gradle/2.4/taskArtifacts/fileHashes.bin
@@ -51,3 +54,13 @@ proguard/
 
 *.bin
 
+
+*.bin
+
+*.bin
+
+.gradle/2.4/taskArtifacts/fileSnapshots.bin
+
+.gradle/2.4/taskArtifacts/outputFileStates.bin
+
+.gradle/2.4/taskArtifacts/taskArtifacts.bin
