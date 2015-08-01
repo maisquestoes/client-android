@@ -30,9 +30,7 @@ public class Preferences {
         SharedPreferences _prefs = ctx.getSharedPreferences(pPrefName, ctx.MODE_PRIVATE);
         String _json = _prefs.getString(pObj.getClass().getSimpleName(), "");
 
-        Object _obj = new Gson().fromJson(_json, Object.class);
-
-        return _obj;
+        return new Gson().fromJson(_json, pObj.getClass());
     }
 
 }

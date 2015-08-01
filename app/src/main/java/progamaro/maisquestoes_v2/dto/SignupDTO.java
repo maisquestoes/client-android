@@ -46,10 +46,6 @@ public class SignupDTO {
             _str.append(ctx.getResources().getString(R.string.err_signup_password_empty));
             _str.append("\n");
         }
-        if (confirmPassword.isEmpty()){
-            _str.append(ctx.getResources().getString(R.string.err_signup_confirmpassword_empty));
-        }
-
         if (!_str.toString().isEmpty()) {
             throw new Exception(_str.toString());
         }
