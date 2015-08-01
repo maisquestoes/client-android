@@ -17,23 +17,23 @@
 
     <string name="str_login_user">Usuário</string>
     <string name="str_login_pass">Senha</string>
-    <string name="str_singup_firstname">Nome</string>
-    <string name="str_singup_lastname">Sobrenome</string>
+
+    <string name="str_singup_name">Nome Completo</string>
     <string name="str_singup_email">Email</string>
     <string name="str_singup_username">Usuário</string>
     <string name="str_singup_pass">Senha</string>
     <string name="str_singup_confirmpass">Confirme a senha</string>
     <string name="str_singup_showpass">Mostrar senha</string>
-    <string name="str_login_enter">Entrar</string>
-    <string name="str_login_preview_enter">Entrar</string>
-    <string name="str_login_preview_signup">Increver-se</string>
-
     <string name="str_signup_register">Cadastrar</string>
     <string name="err_signup_username_empty">Usuário Inválido</string>
     <string name="err_signup_firstname_empty">Informe o Nome</string>
     <string name="err_signup_email_empty">Informe o Email</string>
     <string name="err_signup_confirmpassword_empty">Confirme a senha</string>
     <string name="err_signup_password_empty">Informe a senha</string>
+
+    <string name="str_login_enter">Entrar</string>
+    <string name="str_login_preview_enter">Entrar</string>
+    <string name="str_login_preview_signup">Increver-se</string>
 
     <string name="msg_logging">Logando</string>
     <string name="msg_wait">Aguarde um momento</string>

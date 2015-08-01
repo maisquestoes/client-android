@@ -10,8 +10,7 @@ import progamaro.maisquestoes_v2.R;
  */
 public class SignupDTO {
     public String username;
-    public String firstName;
-    public String lastName;
+    public String name;
     public String email;
     public String password;
     public String confirmPassword;
@@ -19,11 +18,10 @@ public class SignupDTO {
     public SignupDTO() {
     }
 
-    public SignupDTO(String username, String firstName, String lastName, String email, String password, String confirmPassword) {
+    public SignupDTO(String username, String name, String email, String password, String confirmPassword) {
 
         this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.email = email;
         this.password = password;
         this.confirmPassword = confirmPassword;
@@ -36,7 +34,7 @@ public class SignupDTO {
             _str.append(ctx.getResources().getString(R.string.err_signup_username_empty));
             _str.append("\n");
         }
-        if (firstName.isEmpty()){
+        if (name.isEmpty()){
             _str.append(ctx.getResources().getString(R.string.err_signup_firstname_empty));
             _str.append("\n");
         }

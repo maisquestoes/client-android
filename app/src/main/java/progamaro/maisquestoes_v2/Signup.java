@@ -35,8 +35,7 @@ import progamaro.maisquestoes_v2.helpers.Routes;
 public class Signup extends Activity {
 
     private EditText et_singup_username;
-    private EditText et_singup_firstname;
-    private EditText et_singup_lastname;
+    private EditText et_singup_name;
     private EditText et_singup_email;
     private EditText et_singup_pass;
     private EditText et_singup_confirmpass;
@@ -55,8 +54,7 @@ public class Signup extends Activity {
             public void onClick(View v) {
 
                 SignupDTO _signupDTO = new SignupDTO(et_singup_username.getText().toString(),
-                                                    et_singup_firstname.getText().toString(),
-                                                    et_singup_lastname.getText().toString(),
+                                                    et_singup_name.getText().toString(),
                                                     et_singup_email.getText().toString(),
                                                     et_singup_pass.getText().toString(),
                                                     et_singup_confirmpass.getText().toString());
@@ -128,8 +126,7 @@ public class Signup extends Activity {
 
     private void init() {
         et_singup_username = (EditText) findViewById(R.id.et_singup_username);
-        et_singup_firstname = (EditText) findViewById(R.id.et_singup_firstname);
-        et_singup_lastname = (EditText) findViewById(R.id.et_singup_lastname);
+        et_singup_name = (EditText) findViewById(R.id.et_singup_name);
         et_singup_email = (EditText) findViewById(R.id.et_singup_email);
         et_singup_pass = (EditText) findViewById(R.id.et_singup_pass);
         et_singup_confirmpass = (EditText) findViewById(R.id.et_singup_confirmpass);
