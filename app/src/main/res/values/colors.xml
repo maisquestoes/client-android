@@ -11,5 +11,7 @@
     <color name="lightPrimaryColor">#C5CAE9</color>
 
     <color name="white">#FFFFFF</color>
+    <color name="btn_orange">#FF6B27</color>
+    <color name="btn_txt_white">#FFF7F5</color>
 
 </resources>
