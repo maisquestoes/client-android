@@ -28,14 +28,23 @@ import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import progamaro.maisquestoes_v2.domain.User;
+import progamaro.maisquestoes_v2.dto.SigninDTO;
+import progamaro.maisquestoes_v2.helpers.Preferences;
 import progamaro.maisquestoes_v2.helpers.Routes;
 
 /**
@@ -76,6 +85,10 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.login_frag);
 
         init();
+
+        //Object _sign = Preferences.getObjectPreference(getApplicationContext(), Preferences.LOGIN_PREFERENCES, new SigninDTO());
+
+        //Toast.makeText(getApplicationContext(), _sign.getApikey() + " - " + _sign.getEmail(), Toast.LENGTH_SHORT).show();
 
         setSupportActionBar(inc_login_toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -155,9 +168,18 @@ public class Login extends AppCompatActivity {
         StringRequest request = new StringRequest(Request.Method.POST, Routes.SIGNIN, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
+                JsonParser _jsonParser =new JsonParser();
+                JsonObject _jsonObject = (JsonObject)_jsonParser.parse(response);
+
+                SigninDTO _signinDTO = new Gson().fromJson(_jsonObject.get("o"), SigninDTO.class);
+
+                Preferences.setObjectPreference(getApplicationContext(),Preferences.LOGIN_PREFERENCES, _signinDTO);
+
+                Toast.makeText(Login.this, _signinDTO.getEmail(), Toast.LENGTH_SHORT).show();
+
                 _progressDialog.dismiss();
 
-                Toast.makeText(Login.this, response, Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Login.this, MainActivity_Drawer.class));
             }
         }, new Response.ErrorListener(){

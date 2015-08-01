@@ -17,4 +17,5 @@ public class GsonHelper {
         final HashMap<String,String> map = new Gson().fromJson(json, stringStringMap);
         return map;
     }
+
 }
