@@ -1,6 +1,5 @@
 package progamaro.maisquestoes_v2;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,25 +24,18 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.HttpMethod;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Type;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import progamaro.maisquestoes_v2.domain.User;
 import progamaro.maisquestoes_v2.dto.SigninDTO;
+import progamaro.maisquestoes_v2.helpers.GsonHelper;
 import progamaro.maisquestoes_v2.helpers.Preferences;
 import progamaro.maisquestoes_v2.helpers.Routes;
 
@@ -87,7 +79,7 @@ public class Login extends AppCompatActivity {
         init();
 
         SigninDTO _sign = (SigninDTO)Preferences.getObjectPreference(getApplicationContext(), Preferences.LOGIN_PREFERENCES, new SigninDTO());
-        Toast.makeText(getApplicationContext(), _sign.getApikey() + " - " + _sign.getEmail(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(), _sign.getApikey() + " - " + _sign.getEmail(), Toast.LENGTH_SHORT).show();
 
         setSupportActionBar(inc_login_toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -168,10 +160,12 @@ public class Login extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                JsonParser _jsonParser =new JsonParser();
-                JsonObject _jsonObject = (JsonObject)_jsonParser.parse(response);
+//                JsonParser _jsonParser =new JsonParser();
+//                JsonObject _jsonObject = (JsonObject)_jsonParser.parse(response);
+//
+//                SigninDTO _signinDTO = new Gson().fromJson(_jsonObject.get("o"), SigninDTO.class);
 
-                SigninDTO _signinDTO = new Gson().fromJson(_jsonObject.get("o"), SigninDTO.class);
+                SigninDTO _signinDTO = (SigninDTO) GsonHelper.fromJson(response, new SigninDTO());
 
                 Preferences.setObjectPreference(getApplicationContext(),Preferences.LOGIN_PREFERENCES, _signinDTO);
 
