@@ -64,3 +64,5 @@ proguard/
 .gradle/2.4/taskArtifacts/outputFileStates.bin
 
 .gradle/2.4/taskArtifacts/taskArtifacts.bin
+
+.idea/misc.xml
