@@ -15,7 +15,7 @@
 
         <activity android:name=".MainActivity" android:label="@string/ac_main" />
         <activity android:name=".Login" android:parentActivityName=".LoginPreview" android:label="@string/ac_login" />
-        <activity android:name=".Signup" android:label="@string/ac_signup" />
+        <activity android:name=".Signup" android:parentActivityName=".LoginPreview" android:label="@string/ac_signup" />
         <activity android:name=".LoginPreview" android:label="@string/ac_login" />
         <activity
             android:name=".Splash_screen"
