@@ -13,7 +13,7 @@
     <!-- Activities -->
     <string name="ac_main">Main</string>
     <string name="ac_login">Login</string>
-    <string name="ac_signup">Cadastro</string>
+    <string name="ac_signup">Inscrever-se</string>
 
     <string name="str_login_user">Usuário</string>
     <string name="str_login_pass">Senha</string>
@@ -24,7 +24,7 @@
     <string name="str_singup_pass">Senha</string>
     <string name="str_singup_confirmpass">Confirme a senha</string>
     <string name="str_singup_showpass">Mostrar senha</string>
-    <string name="str_signup_register">Cadastrar</string>
+    <string name="str_signup_register">INSCREVER-SE</string>
     <string name="err_signup_username_empty">Usuário Inválido</string>
     <string name="err_signup_firstname_empty">Informe o Nome</string>
     <string name="err_signup_email_empty">Informe o Email</string>
