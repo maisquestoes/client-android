@@ -86,8 +86,7 @@ public class Login extends AppCompatActivity {
 
         init();
 
-        //Object _sign = Preferences.getObjectPreference(getApplicationContext(), Preferences.LOGIN_PREFERENCES, new SigninDTO());
-
+        Object _sign = Preferences.getObjectPreference(getApplicationContext(), Preferences.LOGIN_PREFERENCES, new SigninDTO());
         //Toast.makeText(getApplicationContext(), _sign.getApikey() + " - " + _sign.getEmail(), Toast.LENGTH_SHORT).show();
 
         setSupportActionBar(inc_login_toolbar);
