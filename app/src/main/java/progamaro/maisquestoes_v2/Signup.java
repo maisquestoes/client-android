@@ -1,27 +1,23 @@
 package progamaro.maisquestoes_v2;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +28,7 @@ import progamaro.maisquestoes_v2.helpers.Routes;
 /**
  * Created by helio on 28/07/15.
  */
-public class Signup extends Activity {
+public class Signup extends AppCompatActivity {
 
     private EditText et_singup_username;
     private EditText et_singup_name;
@@ -41,6 +37,7 @@ public class Signup extends Activity {
     private EditText et_singup_confirmpass;
     private Button btn_signup_register;
     private ProgressDialog _progressDialog;
+    private Toolbar inc_signup_toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +128,11 @@ public class Signup extends Activity {
         et_singup_pass = (EditText) findViewById(R.id.et_singup_pass);
         et_singup_confirmpass = (EditText) findViewById(R.id.et_singup_confirmpass);
         btn_signup_register = (Button) findViewById(R.id.btn_signup_register);
+        inc_signup_toolbar = (Toolbar) findViewById(R.id.inc_signup_toolbar);
+
+        setSupportActionBar(inc_signup_toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
     }
 }
