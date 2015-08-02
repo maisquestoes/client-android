@@ -35,7 +35,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import progamaro.maisquestoes_v2.domain.User;
-import progamaro.maisquestoes_v2.dto.JsonBaseDTO;
 import progamaro.maisquestoes_v2.dto.LoginDTO;
 import progamaro.maisquestoes_v2.dto.SigninDTO;
 import progamaro.maisquestoes_v2.helpers.GsonHelper;
@@ -62,31 +61,18 @@ public class Login extends AppCompatActivity {
 
     private ProgressDialog _progressDialog;
 
-    private void init(){
-        btn_login_fb = (LoginButton)findViewById(R.id.btn_login_fb);
-        btn_login_mq = (Button)findViewById(R.id.btn_login_mq);
-        et_login_frag_user = (EditText)findViewById(R.id.et_login_frag_user);
-        et_login_frag_pass = (EditText)findViewById(R.id.et_login_frag_pass);
-        inc_login_toolbar = (Toolbar)findViewById(R.id.inc_login_toolbar);
-
-        setSupportActionBar(inc_login_toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        btn_login_fb.setReadPermissions("public_profile","email");
-        callbackManager = CallbackManager.Factory.create();
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
-        setContentView(R.layout.login_frag);
+        setContentView(R.layout.login);
 
         init();
 
         SigninDTO _sign = (SigninDTO)Preferences.getObjectPreference(getApplicationContext(), Preferences.LOGIN_PREFERENCES, new SigninDTO());
-///        Toast.makeText(getApplicationContext(), _sign.getApikey() + " - " + _sign.getEmail(), Toast.LENGTH_SHORT).show();
+        if (_sign != null){
+            Toast.makeText(getApplicationContext(), _sign.getApikey()[0] + " - " + _sign.getEmail(), Toast.LENGTH_SHORT).show();
+        }
 
         btn_login_mq.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -223,6 +209,21 @@ public class Login extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         accessTokenTracker.stopTracking();
+    }
+
+    private void init(){
+        btn_login_fb = (LoginButton)findViewById(R.id.btn_login_fb);
+        btn_login_mq = (Button)findViewById(R.id.btn_login_mq);
+        et_login_frag_user = (EditText)findViewById(R.id.et_login_frag_user);
+        et_login_frag_pass = (EditText)findViewById(R.id.et_login_frag_pass);
+        inc_login_toolbar = (Toolbar)findViewById(R.id.inc_login_toolbar);
+
+        setSupportActionBar(inc_login_toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        btn_login_fb.setReadPermissions("public_profile", "email");
+        callbackManager = CallbackManager.Factory.create();
     }
 
     /*class loginAsync extends AsyncTask<String, String, String>{

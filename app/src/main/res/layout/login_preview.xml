@@ -61,7 +61,7 @@
         </LinearLayout>
 
         <com.facebook.login.widget.LoginButton
-            android:id="@+id/btn_login_fb"
+            android:id="@+id/btn_login_preview_fb"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

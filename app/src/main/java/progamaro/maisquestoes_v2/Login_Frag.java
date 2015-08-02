@@ -1,6 +1,5 @@
 package progamaro.maisquestoes_v2;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -9,12 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
@@ -32,7 +29,7 @@ public class Login_Frag extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.login_frag, null);
+        View view = inflater.inflate(R.layout.login, null);
 
         btn_login_fb = (LoginButton)view.findViewById(R.id.btn_login_fb);
         btn_login_mq = (Button)view.findViewById(R.id.btn_login_mq);
