@@ -26,6 +26,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,6 +35,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import progamaro.maisquestoes_v2.domain.User;
+import progamaro.maisquestoes_v2.dto.JsonBaseDTO;
+import progamaro.maisquestoes_v2.dto.LoginDTO;
 import progamaro.maisquestoes_v2.dto.SigninDTO;
 import progamaro.maisquestoes_v2.helpers.GsonHelper;
 import progamaro.maisquestoes_v2.helpers.Preferences;
@@ -66,6 +69,10 @@ public class Login extends AppCompatActivity {
         et_login_frag_pass = (EditText)findViewById(R.id.et_login_frag_pass);
         inc_login_toolbar = (Toolbar)findViewById(R.id.inc_login_toolbar);
 
+        setSupportActionBar(inc_login_toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         btn_login_fb.setReadPermissions("public_profile","email");
         callbackManager = CallbackManager.Factory.create();
     }
@@ -79,20 +86,17 @@ public class Login extends AppCompatActivity {
         init();
 
         SigninDTO _sign = (SigninDTO)Preferences.getObjectPreference(getApplicationContext(), Preferences.LOGIN_PREFERENCES, new SigninDTO());
-//        Toast.makeText(getApplicationContext(), _sign.getApikey() + " - " + _sign.getEmail(), Toast.LENGTH_SHORT).show();
-
-        setSupportActionBar(inc_login_toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+///        Toast.makeText(getApplicationContext(), _sign.getApikey() + " - " + _sign.getEmail(), Toast.LENGTH_SHORT).show();
 
         btn_login_mq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //new loginAsync().execute();
-                String _username = et_login_frag_user.getText().toString();
-                String _pass = et_login_frag_pass.getText().toString();
-                Signin(_username, _pass);
-                //Authenticate("helio1234", "123456");
+
+                LoginDTO _loginDTO = new LoginDTO();
+                _loginDTO.setUsername(et_login_frag_user.getText().toString());
+                _loginDTO.setPassword(et_login_frag_pass.getText().toString());
+
+                Signin(_loginDTO);
             }
         });
 
@@ -152,18 +156,15 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private void Signin(final String pUsername, final String pPass) {
+    private void Signin(final LoginDTO pLoginDTO) {
 
         startProgressBar();
+
+        final String json = new Gson().toJson(pLoginDTO);
 
         StringRequest request = new StringRequest(Request.Method.POST, Routes.SIGNIN, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
-//                JsonParser _jsonParser =new JsonParser();
-//                JsonObject _jsonObject = (JsonObject)_jsonParser.parse(response);
-//
-//                SigninDTO _signinDTO = new Gson().fromJson(_jsonObject.get("o"), SigninDTO.class);
 
                 SigninDTO _signinDTO = (SigninDTO) GsonHelper.fromJson(response, new SigninDTO());
 
@@ -184,12 +185,7 @@ public class Login extends AppCompatActivity {
         }){
             @Override
             protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String,String>();
-                params.put("username", pUsername);
-                params.put("password", pPass);
-
-
-                return params;
+                return GsonHelper.getParams(json);
             }
 
             @Override
@@ -201,11 +197,6 @@ public class Login extends AppCompatActivity {
                 return params;
             }
 
-            /*@Override
-            public String getBodyContentType() {
-
-                return "application/x-www-form-urlencoded";
-            }*/
         };
         VolleyApplication.getInstance().getRequestQueue().add(request);
     }

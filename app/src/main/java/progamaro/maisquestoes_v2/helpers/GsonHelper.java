@@ -7,11 +7,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-
-import progamaro.maisquestoes_v2.dto.JsonBaseDTO;
-import progamaro.maisquestoes_v2.dto.SigninDTO;
 
 /**
  * Created by andremiranda on 30/07/15.
