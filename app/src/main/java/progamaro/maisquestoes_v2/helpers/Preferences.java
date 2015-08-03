@@ -33,4 +33,11 @@ public class Preferences {
         return new Gson().fromJson(_json, pObj.getClass());
     }
 
+    public static void clearObjectPreference(Context ctx, String pPrefName, Object pObj){
+        SharedPreferences _prefs = ctx.getSharedPreferences(pPrefName, ctx.MODE_PRIVATE);
+        SharedPreferences.Editor _editor = _prefs.edit();
+        _editor.remove(pObj.getClass().getSimpleName());
+        _editor.commit();
+    }
+
 }

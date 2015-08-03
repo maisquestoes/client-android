@@ -14,7 +14,12 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
 import com.facebook.login.widget.LoginButton;
+
+import progamaro.maisquestoes_v2.dto.SigninDTO;
+import progamaro.maisquestoes_v2.helpers.Preferences;
 
 /**
  * Created by helio on 22/07/15.
@@ -35,11 +40,17 @@ public class MainActivity_Drawer extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+
+        // analytics facebook
+        AppEventsLogger.deactivateApp(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        // analytics facebook
+        AppEventsLogger.activateApp(this);
     }
 
     @Override
@@ -94,19 +105,12 @@ public class MainActivity_Drawer extends AppCompatActivity {
 
     private void Logout() {
         // get provider shared preferences
-        SharedPreferences _preferences = getSharedPreferences("LoginPreferences", 0);
-        String provider = _preferences.getString("prefUserProvider", "");
+        Preferences.clearObjectPreference(getApplicationContext(),Preferences.LOGIN_PREFERENCES,new SigninDTO());
 
-        VolleyApplication.clearSharedPreferences(getApplicationContext(), "LoginPreferences", "prefUserName");
-        VolleyApplication.clearSharedPreferences(getApplicationContext(), "LoginPreferences", "prefName");
-        VolleyApplication.clearSharedPreferences(getApplicationContext(), "LoginPreferences", "prefUserEmail");
-        VolleyApplication.clearSharedPreferences(getApplicationContext(), "LoginPreferences", "prefUserProvider");
+        LoginManager.getInstance().logOut();
 
-        if (provider.equals(VolleyApplication.provider.facebook.toString())) {
-            // logout facebook TODO
-        }
-
-        startActivity(new Intent(MainActivity_Drawer.this, Login.class));
+        startActivity(new Intent(MainActivity_Drawer.this, SigninPreview.class));
+        finish();
     }
 
     @Override

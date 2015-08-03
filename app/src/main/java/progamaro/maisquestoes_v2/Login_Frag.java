@@ -29,7 +29,7 @@ public class Login_Frag extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.login, null);
+        View view = inflater.inflate(R.layout.signin_local, null);
 
         btn_login_fb = (LoginButton)view.findViewById(R.id.btn_login_fb);
         btn_login_mq = (Button)view.findViewById(R.id.btn_login_mq);
