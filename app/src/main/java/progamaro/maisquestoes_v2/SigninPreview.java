@@ -2,6 +2,7 @@ package progamaro.maisquestoes_v2;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -68,7 +69,7 @@ public class SigninPreview extends Activity {
 
                                 SigninDTO _signinDTO = new SigninDTO();
                                 try {
-                                    _signinDTO.setApikey(new String[]{jsonObject.getString("id")});
+                                    _signinDTO.setApikey(jsonObject.getString("id"));
                                     _signinDTO.setEmail(jsonObject.getString("email"));
                                     _signinDTO.setRoles(new String[]{"user"});
                                 } catch (JSONException e) {

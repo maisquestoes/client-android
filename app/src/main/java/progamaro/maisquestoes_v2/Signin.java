@@ -91,7 +91,7 @@ public class Signin extends AppCompatActivity {
 
         SigninDTO _sign = (SigninDTO)Preferences.getObjectPreference(getApplicationContext(), Preferences.LOGIN_PREFERENCES, new SigninDTO());
         if (_sign != null){
-            Toast.makeText(getApplicationContext(), _sign.getApikey()[0] + " - " + _sign.getEmail(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), _sign.getApikey() + " - " + _sign.getEmail(), Toast.LENGTH_SHORT).show();
         }
 
         btn_login_mq.setOnClickListener(new View.OnClickListener() {
