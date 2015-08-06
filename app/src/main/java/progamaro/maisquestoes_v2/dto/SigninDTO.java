@@ -7,24 +7,24 @@ public class SigninDTO {
 
     //private String firstName;
     //private String lastName;
-    private String[] apikey;
+    private String apikey;
     private String email;
     private String[] roles;
 
     public SigninDTO() {
     }
 
-    public SigninDTO(String[] apikey, String email, String[] roles) {
+    public SigninDTO(String apikey, String email, String[] roles) {
         this.apikey = apikey;
         this.email = email;
         this.roles = roles;
     }
 
-    public String[] getApikey() {
+    public String getApikey() {
         return apikey;
     }
 
-    public void setApikey(String[] apikey) {
+    public void setApikey(String apikey) {
         this.apikey = apikey;
     }
 
