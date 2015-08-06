@@ -13,5 +13,5 @@
     <color name="white">#FFFFFF</color>
     <color name="btn_orange">#FF6B27</color>
     <color name="btn_txt_white">#FFF7F5</color>
-
+    <color name="subject_background_text">#111111</color>
 </resources>
