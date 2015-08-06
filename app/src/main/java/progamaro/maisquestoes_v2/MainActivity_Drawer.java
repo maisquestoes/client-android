@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.widget.LoginButton;
 
+import progamaro.maisquestoes_v2.adapters.TabsAdapter;
 import progamaro.maisquestoes_v2.dto.SigninDTO;
 import progamaro.maisquestoes_v2.helpers.Preferences;
 
@@ -29,6 +31,10 @@ public class MainActivity_Drawer extends AppCompatActivity {
     private NavigationView _navigation_view;
     private DrawerLayout _drawer_layout;
     private Toolbar _toolbar;
+
+    private SlidingTabLayout mSlidingTabLayout;
+    private ViewPager mViewPager;
+    private TabsAdapter mTabsAdapter;
 
     private LoginButton btn_login_fb;
 
@@ -69,6 +75,31 @@ public class MainActivity_Drawer extends AppCompatActivity {
         _actionbar.setHomeAsUpIndicator(R.mipmap.ic_menu);
         _actionbar.setDisplayHomeAsUpEnabled(true);
 
+        // TABS
+        mTabsAdapter = new TabsAdapter(getSupportFragmentManager(), MainActivity_Drawer.this);
+        mViewPager = (ViewPager)findViewById(R.id.vp_tabs);
+        mViewPager.setAdapter(mTabsAdapter);
+
+        mSlidingTabLayout = (SlidingTabLayout)findViewById(R.id.stl_tabs);
+        mSlidingTabLayout.setDistributeEvenly(true);
+        mSlidingTabLayout.setBackgroundColor(getResources().getColor(R.color.primaryColor));
+        mSlidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.white));
+        mSlidingTabLayout.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+        mSlidingTabLayout.setViewPager( mViewPager );
+
+        // NAVIGATION VIEW
         _navigation_view = (NavigationView) findViewById(R.id.navigation_view);
         _navigation_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -87,7 +118,7 @@ public class MainActivity_Drawer extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "fragment User Indo", Toast.LENGTH_SHORT).show();
                         FragmentGps fragmentGps = new FragmentGps();
                         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.content_frame, fragmentGps);
+                        //fragmentTransaction.replace(R.id.content_frame, fragmentGps);
                         fragmentTransaction.commit();
                         return true;
                     case R.id.mnu_logout:
