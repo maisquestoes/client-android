@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import progamaro.maisquestoes_v2.Fragment1;
 import progamaro.maisquestoes_v2.Fragment2;
 import progamaro.maisquestoes_v2.Fragment3;
+import progamaro.maisquestoes_v2.SubjectsFrag;
 
 /**
  * Created by helio on 05/08/15.
@@ -34,7 +35,7 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
                 Fragment2 frag2 = new Fragment2();
                 return frag2;
             case 2:
-                Fragment3 frag3 = new Fragment3();
+                SubjectsFrag frag3 = new SubjectsFrag();
                 return frag3;
             default:
                 return null;

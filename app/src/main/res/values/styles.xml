@@ -13,6 +13,10 @@
 
     </style>
 
+    <style name="toolbar_oneaccess" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="loginPreview">
         <item name="android:background">@color/primaryColor</item>
         <item name="android:padding">30dp</item>

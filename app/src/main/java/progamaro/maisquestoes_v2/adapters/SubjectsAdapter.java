@@ -15,31 +15,35 @@ import progamaro.maisquestoes_v2.dto.SubjectsDTO;
  */
 public class SubjectsAdapter extends RecyclerView.Adapter<SubjectsViewHolder> {
 
-    private List<SubjectsDTO> mSubjects;
-    private int mRowLayout;
-    private Context mContext;
+    private List<SubjectsDTO> _subjects;
+    private int _rowLayout;
+    private Context _context;
 
-    public SubjectsAdapter(List<SubjectsDTO> subjects, int rowLayout, Context context) {
-        mSubjects = subjects;
-        mContext = context;
-        mRowLayout = rowLayout;
+    public SubjectsAdapter(List<SubjectsDTO> subjects, int rowLayout) {
+        _subjects = subjects;
+        _rowLayout = rowLayout;
     }
 
     @Override
     public SubjectsViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(mRowLayout, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(_rowLayout, viewGroup, false);
         return new SubjectsViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(SubjectsViewHolder viewHolder, int i) {
-        SubjectsDTO obj = mSubjects.get(i);
+        SubjectsDTO obj = _subjects.get(i);
         viewHolder.tv_subject.setText(obj.getSubject());
         viewHolder.tv_subject_description.setText(obj.getSubject_descrpiton());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return _subjects.size();
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
     }
 }

@@ -20,20 +20,20 @@ import progamaro.maisquestoes_v2.dto.SubjectsDTO;
  */
 public class SubjectsFrag extends Fragment {
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private SubjectsAdapter mAdapter;
+    private RecyclerView _recyclerView;
+    private RecyclerView.LayoutManager _layoutManager;
+    private SubjectsAdapter _adapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.subjects,null);
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_subjects);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        _recyclerView = (RecyclerView) view.findViewById(R.id.rv_subjects);
+        _recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        mAdapter = new SubjectsAdapter(getSubjects(), R.layout.card_subjects, getActivity());
-        mRecyclerView.setAdapter(mAdapter);
+        _adapter = new SubjectsAdapter(getSubjects(), R.layout.card_subjects);
+        _recyclerView.setAdapter(_adapter);
 
         return view;
 
