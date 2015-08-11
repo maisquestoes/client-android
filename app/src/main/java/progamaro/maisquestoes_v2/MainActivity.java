@@ -49,8 +49,8 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 1){
-                    *//*Fragment1 frag1 = (Fragment1) fm.findFragmentById(R.id.fragment1);
-                    frag1.alteraTextView("Fragment1 TextView Alterado");*//*
+                    *//*FragFavoritos frag1 = (FragFavoritos) fm.findFragmentById(R.id.fragment1);
+                    frag1.alteraTextView("FragFavoritos TextView Alterado");*//*
                 }
             }
         });*/

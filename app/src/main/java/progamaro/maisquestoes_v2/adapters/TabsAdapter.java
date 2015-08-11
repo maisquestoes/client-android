@@ -4,20 +4,18 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
 
-import progamaro.maisquestoes_v2.Fragment1;
+import progamaro.maisquestoes_v2.FragFavoritos;
 import progamaro.maisquestoes_v2.Fragment2;
 import progamaro.maisquestoes_v2.Fragment3;
-import progamaro.maisquestoes_v2.SubjectsFrag;
 
 /**
  * Created by helio on 05/08/15.
  */
-public class TabsAdapter extends FragmentStatePagerAdapter {
+public class TabsAdapter extends FragmentPagerAdapter {
 
     private Context mContext;
-    private String[] titles = {"HISTÓRICO", "ASSUNTOS", "ESTUDO"};
+    private String[] titles = {"FAVORITOS", "TODOS", "PERFIL"};
 
     public TabsAdapter(FragmentManager fm, Context ctx) {
         super(fm);
@@ -27,19 +25,18 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
+        Fragment frag = null;
+
         switch (position){
             case 0:
-                Fragment1 frag = new Fragment1();
-                return frag;
+                frag = new FragFavoritos();
             case 1:
-                Fragment2 frag2 = new Fragment2();
-                return frag2;
+                frag = new FragFavoritos();
             case 2:
-                SubjectsFrag frag3 = new SubjectsFrag();
-                return frag3;
-            default:
-                return null;
+                frag = new FragFavoritos();
         }
+
+        return frag;
 
     }
 

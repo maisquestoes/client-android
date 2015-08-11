@@ -17,9 +17,10 @@
         <activity android:name=".Signin" android:parentActivityName=".SigninPreview" android:label="@string/ac_login" />
         <activity android:name=".Signup" android:parentActivityName=".SigninPreview" android:label="@string/ac_signup" />
         <activity android:name=".SigninPreview" android:label="@string/ac_login" />
+        <!--<activity android:name=".PreConfiguration" android:label="@string/ac_preconfiguration" />-->
         <activity
             android:name=".Splash_screen"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

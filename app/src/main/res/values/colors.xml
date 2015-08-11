@@ -5,15 +5,24 @@
     <color name="primaryColor">#FF5722</color>
     <color name="lightPrimaryColor">#FFCCBC</color>-->
 
-    <color name="accent">#448AFF</color>
+    <!--<color name="accent">#448AFF</color>
     <color name="primaryDarkColor">#0079A1</color>
     <color name="primaryColor">#0091C4</color>
-    <color name="lightPrimaryColor">#C5CAE9</color>
+    <color name="lightPrimaryColor">#C5CAE9</color>-->
+
+    <color name="backgroundSplash">#0091C4</color>
+    <color name="backgroundSplashDark">#0079A1</color>
+
+    <color name="accent">#795548</color>
+    <color name="primaryDarkColor">#E64A19</color>
+    <color name="primaryColor">#FF5722</color>
+    <color name="lightPrimaryColor">#FFCCBC</color>
 
     <color name="white">#FFFFFF</color>
     <color name="btn_orange">#FF6B27</color>
     <color name="btn_txt_white">#FFF7F5</color>
     <color name="card_subject">#282828</color>
     <color name="card_subject_description">#CCCCCC</color>
+    <color name="background_activities">#FAFAFA</color>
 
 </resources>

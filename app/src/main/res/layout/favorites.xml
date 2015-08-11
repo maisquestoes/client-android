@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:padding="3dp">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Material"
+        android:layout_marginTop="15dp"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Último estudado"
+        android:layout_marginTop="5dp"
+        android:textSize="13sp"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="140dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_favorites_material"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_favorites_material"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Administração"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:id="@+id/tv_favorites_material_2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Financeiro"
+                android:layout_marginTop="1dp"
+                android:textSize="13sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

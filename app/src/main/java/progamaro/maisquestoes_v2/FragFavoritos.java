@@ -10,20 +10,12 @@ import android.widget.TextView;
 /**
  * Created by helio on 13/07/15.
  */
-public class Fragment1 extends Fragment {
+public class FragFavoritos extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.layout_frag_1,null);
-
-        TextView tv = (TextView) view.findViewById(R.id.textView1);
-        tv.setText("Fragment 01");
-
+        View view = inflater.inflate(R.layout.favorites,null);
         return view;
     }
 
-    public void alteraTextView(String texto){
-        TextView tv = (TextView)getView().findViewById(R.id.textView1);
-        tv.setText(texto);
-    }
 }
