@@ -4,17 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".PreConfiguration">
 
     <item
-        android:id="@+id/action_search"
-        android:icon="@mipmap/ic_search2"
+        android:id="@+id/action_forward"
+        android:icon="@mipmap/ic_forward"
         android:menuCategory="secondary"
         app:showAsAction="ifRoom"
-        android:title="search"/>
-
-
-    <item
-        android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
+        android:title="forward"/>
 
 </menu>

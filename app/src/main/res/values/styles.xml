@@ -14,6 +14,18 @@
     </style>
 
     <style name="toolbar_oneaccess" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">16sp</item>
+        <item name="android:color">#fafafa</item>
+    </style>
+
+    <style name="toolbar_pre_configuration_subtitle">
+        <item name="android:textColor">#fafafa</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">20dp</item>
+    </style>
+
+    <style name="toolbar_pre_configuration_title">
+        <item name="android:textColor">#fafafa</item>
         <item name="android:textSize">18sp</item>
     </style>
 
