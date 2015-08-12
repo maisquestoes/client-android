@@ -5,7 +5,7 @@
         &lt;!&ndash; Customize your theme here. &ndash;&gt;
     </style>-->
 
-    <style name="Theme.MyTheme" parent="MaterialDrawerTheme.Light.DarkToolbar.TranslucentStatus">
+    <style name="Theme.MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
@@ -17,18 +17,13 @@
 
     </style>
 
-    <style name="toolbar_oneaccess" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">16sp</item>
-        <item name="android:color">#fafafa</item>
+    <style name="toolbar_transparent" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">true</item>
     </style>
 
-    <style name="toolbar_pre_configuration_subtitle">
-        <item name="android:textColor">#fafafa</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:padding">20dp</item>
-    </style>
-
-    <style name="toolbar_pre_configuration_title">
+    <style name="preconfiguration_textview">
         <item name="android:textColor">#fafafa</item>
         <item name="android:textSize">18sp</item>
     </style>
