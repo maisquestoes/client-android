@@ -7,10 +7,15 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:scaleType="matrix"
+        android:src="@mipmap/background_pre_configuration"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:background="@mipmap/background_pre_configuration"
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
@@ -22,12 +27,12 @@
             app:theme="@style/toolbar_transparent">
 
             <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            style="@style/preconfiguration_textview"
-            android:text="Pré Configuração"
-            android:id="@+id/toolbar_title" />
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/preconfiguration_textview"
+                android:text="Pré Configuração"
+                android:id="@+id/toolbar_title" />
 
         </android.support.v7.widget.Toolbar>
 

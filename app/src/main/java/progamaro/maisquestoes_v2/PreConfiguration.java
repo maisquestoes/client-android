@@ -17,12 +17,18 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import progamaro.maisquestoes_v2.adapters.SubjectsViewAdapter;
+import progamaro.maisquestoes_v2.dto.SigninDTO;
 import progamaro.maisquestoes_v2.dto.SubjectsDTO;
+import progamaro.maisquestoes_v2.helpers.GsonHelper;
+import progamaro.maisquestoes_v2.helpers.Preferences;
 import progamaro.maisquestoes_v2.helpers.Routes;
 
 /**
@@ -40,16 +46,20 @@ public class PreConfiguration extends AppCompatActivity {
 
         init();
 
-        GetSubjects();
-
-        _gridview = (GridView) findViewById(R.id.gv_cards);
-        _gridview.setAdapter(new SubjectsViewAdapter(getSubjects(), this));
+//        GetSubjects();
     }
 
     private void GetSubjects() {
+        final String apikey = Preferences.getApiKey(PreConfiguration.this);
+
         StringRequest request = new StringRequest(Request.Method.GET, Routes.ALL_SUBJECTS, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
+//                SigninDTO _signinDTO = (SigninDTO) GsonHelper.fromJson(response, new SigninDTO());
+//
+//                Preferences.setObjectPreference(getApplicationContext(), Preferences.LOGIN_PREFERENCES, _signinDTO);
+
                 Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
@@ -57,7 +67,14 @@ public class PreConfiguration extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), "error: "+error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        });
+        }){
+            @Override
+            protected Map<String, String> getParams() {
+                HashMap<String,String> map = new HashMap<>();
+                map.put("apikey", apikey);
+                return map;
+            }
+        };
         VolleyApplication.getInstance().getRequestQueue().add(request);
     }
 
@@ -79,6 +96,11 @@ public class PreConfiguration extends AppCompatActivity {
         setSupportActionBar(_toolbar);
         _toolbar.setNavigationIcon(R.mipmap.ic_search);
         _toolbar.setTitle("Pré Configuração");
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        _gridview = (GridView) findViewById(R.id.gv_cards);
+        _gridview.setAdapter(new SubjectsViewAdapter(getSubjects(), this));
     }
 
     @Override
