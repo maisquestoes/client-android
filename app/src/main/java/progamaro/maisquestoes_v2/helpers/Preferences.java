@@ -26,6 +26,10 @@ public class Preferences {
         Toast.makeText(ctx, "Shared preference salvo com sucesso", Toast.LENGTH_LONG).show();
     }
 
+    public static String getApiKey(Context ctx){
+        return ((SigninDTO) getObjectPreference(ctx, LOGIN_PREFERENCES, new SigninDTO())).getApikey();
+    }
+
     public static Object getObjectPreference(Context ctx, String pPrefName, Object pObj){
         SharedPreferences _prefs = ctx.getSharedPreferences(pPrefName, ctx.MODE_PRIVATE);
         String _json = _prefs.getString(pObj.getClass().getSimpleName(), "");
