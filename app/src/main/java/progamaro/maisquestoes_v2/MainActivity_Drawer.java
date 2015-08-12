@@ -1,5 +1,7 @@
 package progamaro.maisquestoes_v2;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -16,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
@@ -243,6 +246,9 @@ public class MainActivity_Drawer extends AppCompatActivity {
                 //_drawer_layout.openDrawer(GravityCompat.START);
                 Toast.makeText(MainActivity_Drawer.this, "Faça o que quiser aqui", Toast.LENGTH_LONG).show();
                 break;
+            case R.id.action_logout:
+                Toast.makeText(MainActivity_Drawer.this, "Saindo", Toast.LENGTH_LONG).show();
+                Logout();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -253,6 +259,12 @@ public class MainActivity_Drawer extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main,menu);
+
+        /*SearchManager searchManager = (SearchManager)getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView)menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        */
+
         return true;
     }
 

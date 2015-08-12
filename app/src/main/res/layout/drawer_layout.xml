@@ -18,7 +18,8 @@
     <progamaro.maisquestoes_v2.SlidingTabLayout
         android:id="@+id/stl_tabs"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        />
 
     <android.support.v4.widget.DrawerLayout
         android:layout_width="match_parent"
@@ -29,7 +30,8 @@
             android:id="@+id/vp_tabs"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            />
 
     </android.support.v4.widget.DrawerLayout>
 
