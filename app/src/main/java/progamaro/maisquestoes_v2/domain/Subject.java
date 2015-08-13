@@ -7,6 +7,7 @@ public class Subject {
     private String _id;
     private int sql_id;
     private String subject;
+    private String created;
 
     public Subject() {
     }
@@ -50,6 +51,4 @@ public class Subject {
     public void setCreated(String created) {
         this.created = created;
     }
-
-    private String created;
 }
