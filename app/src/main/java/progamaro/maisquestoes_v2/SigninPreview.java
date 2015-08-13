@@ -106,7 +106,6 @@ public class SigninPreview extends Activity {
         btn_login_preview_fb.setReadPermissions("public_profile","email");
         callbackManager = CallbackManager.Factory.create();
 
-        getWindow().setStatusBarColor(this.getResources().getColor(R.color.backgroundSplashDark));
 //        btn_login_preview_fb.setReadPermissions("user_friends");
     }
 

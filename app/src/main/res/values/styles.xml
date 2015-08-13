@@ -5,7 +5,7 @@
         &lt;!&ndash; Customize your theme here. &ndash;&gt;
     </style>-->
 
-    <style name="Theme.MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="MainStyle" parent="Theme.AppCompat.Light.NoActionBar">
 
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
@@ -17,9 +17,17 @@
 
     </style>
 
+    <style name="SigninPreview" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/backgroundSplash</item>
+        <item name="colorPrimaryDark">@color/backgroundSplashDark</item>
+    </style>
+
+    <style name="statusbar_transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
     <style name="toolbar_transparent" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:windowActionBarOverlay">true</item>
-        <!-- Support library compatibility -->
         <item name="windowActionBarOverlay">true</item>
     </style>
 
@@ -28,7 +36,7 @@
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="loginPreview">
+    <style name="signinPreview">
         <item name="android:background">@color/backgroundSplash</item>
         <item name="android:padding">30dp</item>
     </style>
