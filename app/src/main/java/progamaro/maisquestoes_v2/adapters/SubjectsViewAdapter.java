@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import progamaro.maisquestoes_v2.R;
@@ -39,7 +37,7 @@ public class SubjectsViewAdapter extends BaseAdapter {
     }
 
     public Object getItem(int position) {
-        return null;
+        return _subjects.get(position);
     }
 
     public long getItemId(int position) {
@@ -48,28 +46,41 @@ public class SubjectsViewAdapter extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        View v;
         if (convertView == null) {
-            SubjectsDTO obj = _subjects.get(position);
+            LayoutInflater inflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            v = inflater.inflate(R.layout.card_subjects, parent, false);
 
-            convertView = LayoutInflater.from(_context).inflate(R.layout.card_subjects, null);
-
-            cv_cardview_subject = (CardView) convertView.findViewById(R.id.cv_subjects);
-            tv_subject = (TextView) convertView.findViewById(R.id.tv_subject);
-            tv_subject_description = (TextView) convertView.findViewById(R.id.tv_subject_description);
-            iv_icon_like = (ImageView) convertView.findViewById(R.id.iv_icon_like);
-
-            tv_subject.setText(obj.getSubject());
-            tv_subject_description.setText(obj.getSubject());
-
-            iv_icon_like.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(_context, "click no icone", Toast.LENGTH_SHORT).show();
-                }
-            });
+            //v = LayoutInflater.from(_context).inflate(R.layout.card_subjects, null);
+        } else {
+            v = (View)convertView;
         }
 
-        return convertView;
+        SubjectsDTO obj = _subjects.get(position);
+
+        //cv_cardview_subject = (CardView) v.findViewById(R.id.cv_subjects);
+        tv_subject = (TextView) v.findViewById(R.id.tv_subject);
+        tv_subject_description = (TextView) v.findViewById(R.id.tv_subject_description);
+        iv_icon_like = (ImageView) v.findViewById(R.id.iv_icon_like);
+
+        tv_subject.setText(obj.getSubject());
+        tv_subject_description.setText(obj.getSubject());
+
+        /*cv_cardview_subject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.setSelected(!view.isSelected());
+                *//*if (v.isSelected()){
+                    iv_icon_like.setSelected(true);
+                    Toast.makeText(_context, "Unselect", Toast.LENGTH_SHORT).show();
+                } else {
+                    iv_icon_like.setSelected(false);
+                    Toast.makeText(_context, "Select", Toast.LENGTH_SHORT).show();
+                }*//*
+            }
+        });*/
+
+        return v;
     }
 
 }

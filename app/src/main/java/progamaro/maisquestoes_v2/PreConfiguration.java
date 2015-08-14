@@ -1,12 +1,16 @@
 package progamaro.maisquestoes_v2;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -32,6 +36,8 @@ public class PreConfiguration extends AppCompatActivity {
 
     private GridView _gridview;
     private Toolbar _toolbar;
+    private ProgressDialog _progressDialog;
+    private SubjectsViewAdapter _subjectsViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +47,26 @@ public class PreConfiguration extends AppCompatActivity {
         init();
 
         GetSubjects();
+
+
+        _gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                ImageView iv_icon_like = (ImageView) view.findViewById(R.id.iv_icon_like);
+                iv_icon_like.setSelected(!iv_icon_like.isSelected());
+
+                SubjectsDTO _subject = (SubjectsDTO) parent.getItemAtPosition(position);
+
+                Toast.makeText(PreConfiguration.this, _subject.getSubject(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void GetSubjects() {
+
+        startProgressBar();
+
         final String apikey = Preferences.getApiKey(PreConfiguration.this);
 
         StringRequest request = new StringRequest(Request.Method.GET, Routes.ALL_SUBJECTS, new Response.Listener<String>() {
@@ -52,7 +75,10 @@ public class PreConfiguration extends AppCompatActivity {
 
                 List<SubjectsDTO> _listObjects = GsonHelper.fromJsonList(response, new SubjectsDTO());
 
-                _gridview.setAdapter(new SubjectsViewAdapter(_listObjects, PreConfiguration.this));
+                _subjectsViewAdapter = new SubjectsViewAdapter(_listObjects, PreConfiguration.this);
+                _gridview.setAdapter(_subjectsViewAdapter);
+
+                _progressDialog.dismiss();
 
 //                Preferences.setObjectPreference(getApplicationContext(), Preferences.LOGIN_PREFERENCES, _signinDTO);
 
@@ -78,6 +104,14 @@ public class PreConfiguration extends AppCompatActivity {
         VolleyApplication.getInstance().getRequestQueue().add(request);
     }
 
+    private void startProgressBar(){
+        _progressDialog = new ProgressDialog(PreConfiguration.this);
+        _progressDialog.setTitle(getResources().getString(R.string.msg_load));
+        _progressDialog.setMessage(getResources().getString(R.string.msg_wait));
+        _progressDialog.setIndeterminate(false);
+        _progressDialog.show();
+    }
+
     public void init(){
         _toolbar = (Toolbar) findViewById(R.id.preconfiguration_toolbar);
 
@@ -86,7 +120,6 @@ public class PreConfiguration extends AppCompatActivity {
         _toolbar.setTitle("Pré Configuração");
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getWindow().setStatusBarColor(getResources().getColor(R.color.background_activities));
 
         _gridview = (GridView) findViewById(R.id.gv_cards);
     }

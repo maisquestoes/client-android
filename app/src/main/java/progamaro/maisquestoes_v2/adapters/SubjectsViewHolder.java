@@ -23,7 +23,7 @@ public class SubjectsViewHolder extends RecyclerView.ViewHolder {
     public SubjectsViewHolder(View itemView) {
         super(itemView);
 
-        cv_cardview = (CardView) itemView.findViewById(R.id.cv_subjects);
+        //cv_cardview = (CardView) itemView.findViewById(R.id.cv_subjects);
         tv_subject = (TextView) itemView.findViewById(R.id.tv_subject);
         tv_subject_description = (TextView) itemView.findViewById(R.id.tv_subject_description);
 //        iv_subject = (ImageView) itemView.findViewById(R.id.iv_subject);

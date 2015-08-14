@@ -43,5 +43,6 @@
     <string name="action_search">Pesquisar</string>
     <string name="search_hint">Pesquisar</string>
     <string name="str_login_preview_signinfb">INICIAR COM FACEBOOK</string>
+    <string name="msg_load">Carregando</string>
 
 </resources>
