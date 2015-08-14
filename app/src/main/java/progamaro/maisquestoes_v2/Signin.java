@@ -127,7 +127,7 @@ public class Signin extends AppCompatActivity {
                 _progressDialog.dismiss();
                 finish();
 
-                startActivity(new Intent(Signin.this, MainActivity_Drawer.class));
+                startActivity(new Intent(Signin.this, PreConfiguration.class));
             }
         }, new Response.ErrorListener(){
             @Override
