@@ -25,4 +25,6 @@
     <color name="card_subject_description">#CCCCCC</color>
     <color name="background_activities">#FAFAFA</color>
 
+    <color name="tabs_title">#FAFAFA</color>
+
 </resources>
