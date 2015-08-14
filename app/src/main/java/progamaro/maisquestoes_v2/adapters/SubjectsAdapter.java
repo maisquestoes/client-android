@@ -33,8 +33,8 @@ public class SubjectsAdapter extends RecyclerView.Adapter<SubjectsViewHolder> {
     @Override
     public void onBindViewHolder(SubjectsViewHolder viewHolder, int i) {
         SubjectsDTO obj = _subjects.get(i);
-        viewHolder.tv_subject.setText(obj.getSubject());
-        viewHolder.tv_subject_description.setText(obj.getSubject_descrpiton());
+        viewHolder.tv_subject.setText(obj.get_id());
+        viewHolder.tv_subject_description.setText(obj.getSubject());
     }
 
     @Override

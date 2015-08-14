@@ -41,10 +41,10 @@ public class SubjectsFrag extends Fragment {
 
     public List<SubjectsDTO> getSubjects(){
         List<SubjectsDTO> list = new ArrayList<SubjectsDTO>();
-        list.add(new SubjectsDTO("teste1", "teste_desc1"));
+        /*list.add(new SubjectsDTO("teste1", "teste_desc1"));
         list.add(new SubjectsDTO("teste2", "teste_desc2"));
         list.add(new SubjectsDTO("teste3", "teste_desc3"));
-        list.add(new SubjectsDTO("teste4", "teste_desc4"));
+        list.add(new SubjectsDTO("teste4", "teste_desc4"));*/
 
         return list;
     }

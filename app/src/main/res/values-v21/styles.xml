@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--<style name="start">
+    <style name="start">
         <item name="android:background">@color/primaryColor</item>
         <item name="android:navigationBarColor">@color/primaryDarkColor</item>
         <item name="android:padding">30dp</item>
-    </style>-->
+    </style>
 </resources>

@@ -13,22 +13,26 @@ public class DbOpenHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 2;
 
     private static final StringBuilder ANSWER_TABLE_CREATE = new StringBuilder()
-            .append("CREATE TABLE ANSWER ")
+            .append("CREATE TABLE IF NOT EXIST ANSWER ")
             .append("(IdAnswer integer, Description text, IsCorrect numeric, ImagePath text);");
 
     private static final StringBuilder QUESTION_TABLE_CREATE = new StringBuilder()
-            .append("CREATE TABLE QUESTION ")
+            .append("CREATE TABLE IF NOT EXIST QUESTION ")
             .append("(Query text, Text text, Subject text);");
 
     private static final StringBuilder USER_TABLE_CREATE = new StringBuilder()
-            .append("CREATE TABLE USER ")
+            .append("CREATE TABLE IF NOT EXIST USER ")
             .append("(IdUser integer, Latitude text, Longitude text);");
+
+    private static final StringBuilder SUBJECTS_FAVORITES_TABLE_CREATE = new StringBuilder()
+            .append("CREATE TABLE SUBJECTS_FAVORITES ")
+            .append("(_id varchar(100), subject varchar(100));");
 
     public DbOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public static StringBuilder getQuestionTableCreate() {
+    /*public static StringBuilder getQuestionTableCreate() {
         return QUESTION_TABLE_CREATE;
     }
 
@@ -36,15 +40,20 @@ public class DbOpenHelper extends SQLiteOpenHelper {
         return ANSWER_TABLE_CREATE;
     }
 
+    public static StringBuilder getSubjectsFavoritesTableCreate() {
+        return SUBJECTS_FAVORITES_TABLE_CREATE;
+    }
+
     public static StringBuilder getUserTableCreate() {
         return USER_TABLE_CREATE;
-    }
+    }*/
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ANSWER_TABLE_CREATE.toString());
         db.execSQL(QUESTION_TABLE_CREATE.toString());
         db.execSQL(USER_TABLE_CREATE.toString());
+        db.execSQL(SUBJECTS_FAVORITES_TABLE_CREATE.toString());
     }
 
     @Override
@@ -52,6 +61,7 @@ public class DbOpenHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS QUESTION");
         db.execSQL("DROP TABLE IF EXISTS ANSWER");
         db.execSQL("DROP TABLE IF EXISTS USER");
+        db.execSQL("DROP TABLE IF EXISTS SUBJECTS_FAVORITES");
         onCreate(db);
     }
 }

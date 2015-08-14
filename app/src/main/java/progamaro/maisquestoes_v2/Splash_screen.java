@@ -140,7 +140,8 @@ public class Splash_screen extends Activity {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         } finally {
-                            Intent it = new Intent(Splash_screen.this, SigninPreview.class);
+                            //Intent it = new Intent(Splash_screen.this, SigninPreview.class);
+                            Intent it = new Intent(Splash_screen.this, PreConfiguration.class);
                             startActivity(it);
                             finish();
                         }

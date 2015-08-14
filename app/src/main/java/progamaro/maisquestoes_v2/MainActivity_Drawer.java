@@ -244,7 +244,7 @@ public class MainActivity_Drawer extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 //_drawer_layout.openDrawer(GravityCompat.START);
-                Toast.makeText(MainActivity_Drawer.this, "Faça o que quiser aqui", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity_Drawer.this, "Pesquisar", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_logout:
                 Toast.makeText(MainActivity_Drawer.this, "Saindo", Toast.LENGTH_LONG).show();

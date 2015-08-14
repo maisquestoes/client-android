@@ -125,6 +125,7 @@ public class Signin extends AppCompatActivity {
                 Toast.makeText(Signin.this, _signinDTO.getEmail(), Toast.LENGTH_SHORT).show();
 
                 _progressDialog.dismiss();
+                finish();
 
                 startActivity(new Intent(Signin.this, MainActivity_Drawer.class));
             }

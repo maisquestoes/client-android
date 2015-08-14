@@ -27,7 +27,8 @@ public class Preferences {
     }
 
     public static String getApiKey(Context ctx){
-        return ((SigninDTO) getObjectPreference(ctx, LOGIN_PREFERENCES, new SigninDTO())).getApikey();
+        //return ((SigninDTO) getObjectPreference(ctx, LOGIN_PREFERENCES, new SigninDTO())).getApikey();
+        return "6E48182D9C98A25E1F1A8F"; // comments after (está dando pau na apikey de login)
     }
 
     public static Object getObjectPreference(Context ctx, String pPrefName, Object pObj){

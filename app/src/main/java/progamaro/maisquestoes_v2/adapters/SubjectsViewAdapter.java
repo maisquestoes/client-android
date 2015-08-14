@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import progamaro.maisquestoes_v2.R;
@@ -28,25 +29,19 @@ public class SubjectsViewAdapter extends BaseAdapter {
     private List<SubjectsDTO> _subjects;
     private Context _context;
 
-    // Gets the context so it can be used later
     public SubjectsViewAdapter(List<SubjectsDTO> subjects, Context c) {
         _subjects = subjects;
         _context = c;
     }
 
-    // Total number of things contained within the adapter
     public int getCount() {
         return _subjects.size();
     }
 
-    // Require for structure, not really used in my code.
     public Object getItem(int position) {
         return null;
     }
 
-    // Require for structure, not really used in my code. Can
-    // be used to get the id of an item in the adapter for
-    // manual control.
     public long getItemId(int position) {
         return position;
     }
@@ -54,7 +49,6 @@ public class SubjectsViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         if (convertView == null) {
-            // if it's not recycled, initialize some attributes
             SubjectsDTO obj = _subjects.get(position);
 
             convertView = LayoutInflater.from(_context).inflate(R.layout.card_subjects, null);
@@ -65,7 +59,7 @@ public class SubjectsViewAdapter extends BaseAdapter {
             iv_icon_like = (ImageView) convertView.findViewById(R.id.iv_icon_like);
 
             tv_subject.setText(obj.getSubject());
-            tv_subject_description.setText(obj.getSubject_descrpiton());
+            tv_subject_description.setText(obj.getSubject());
 
             iv_icon_like.setOnClickListener(new View.OnClickListener() {
                 @Override
