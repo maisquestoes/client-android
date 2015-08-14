@@ -7,8 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import progamaro.maisquestoes_v2.FragFavoritos;
 import progamaro.maisquestoes_v2.FragSubjects;
-import progamaro.maisquestoes_v2.Fragment2;
-import progamaro.maisquestoes_v2.Fragment3;
 
 /**
  * Created by helio on 05/08/15.

@@ -3,19 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:background="@color/background_activities"
-    android:padding="5dp"
+    android:padding="8dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="45dp">
 
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Material"
-            android:layout_marginTop="15dp"
             android:textSize="22sp"/>
 
         <TextView
@@ -26,6 +25,7 @@
             android:textSize="13sp"/>
 
         <Button
+            android:id="@+id/btn_tab_subjects"
             android:layout_width="50dp"
             android:layout_height="20dp"
             android:text="Todos"
@@ -36,5 +36,22 @@
             android:layout_alignParentRight="true"/>
 
     </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_tab_subjects"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+    <!--<GridView-->
+        <!--android:id="@+id/gv_tab_subjects"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:numColumns="auto_fit"-->
+        <!--android:stretchMode="columnWidth"-->
+        <!--android:gravity="center">-->
+
+    <!--</GridView>-->
 
 </LinearLayout>
