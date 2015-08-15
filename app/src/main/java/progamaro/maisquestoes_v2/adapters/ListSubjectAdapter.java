@@ -19,7 +19,6 @@ public class ListSubjectAdapter extends ArrayAdapter<SubjectsDTO> {
 
     private List<SubjectsDTO> _subjects;
     private Context _context;
-    private TextView tv_tab_subjects_subject_description;
 
     public ListSubjectAdapter(Context context, int resource, List<SubjectsDTO> subjects) {
         super(context, resource, subjects);
@@ -30,16 +29,24 @@ public class ListSubjectAdapter extends ArrayAdapter<SubjectsDTO> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        final ListSubjectHolder _holder;
+
         if (convertView == null){
             LayoutInflater inflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.tab_subjects_subject, null);
-            tv_tab_subjects_subject_description = (TextView) convertView.findViewById(R.id.tv_tab_subjects_subject_description);
+
+            _holder = new ListSubjectHolder();
+            _holder.tv_tab_subjects_subject = (TextView) convertView.findViewById(R.id.tv_tab_subjects_subject_description);
+            convertView.setTag(_holder);
+
+        }else{
+            _holder = (ListSubjectHolder) convertView.getTag();
         }
 
         SubjectsDTO obj = _subjects.get(position);
 
         if(obj != null){
-            tv_tab_subjects_subject_description.setText(obj.getSubject());
+            _holder.tv_tab_subjects_subject.setText(obj.getSubject());
         }
 
         return convertView;
