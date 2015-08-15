@@ -13,7 +13,6 @@
         android:theme="@style/MainStyle"
         android:name=".VolleyApplication">
 
-        <activity android:name=".MainActivity" android:label="@string/ac_main" />
         <activity android:name=".Signin" android:parentActivityName=".SigninPreview" android:label="@string/ac_login" />
         <activity android:name=".Signup" android:parentActivityName=".SigninPreview" android:label="@string/ac_signup" />
         <activity android:name=".SigninPreview" android:label="@string/ac_login"  android:theme="@style/SigninPreview"/>
