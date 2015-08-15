@@ -2,6 +2,8 @@ package progamaro.maisquestoes_v2;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.YuvImage;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -28,6 +30,9 @@ import progamaro.maisquestoes_v2.dto.SubjectsDTO;
 import progamaro.maisquestoes_v2.helpers.GsonHelper;
 import progamaro.maisquestoes_v2.helpers.Preferences;
 import progamaro.maisquestoes_v2.helpers.Routes;
+import progamaro.maisquestoes_v2.sqlite.DbOpenHelper;
+import progamaro.maisquestoes_v2.sqlite.DbQuestionHelper;
+import progamaro.maisquestoes_v2.sqlite.DbSubjectsFavoritesHelper;
 
 /**
  * Created by andremiranda on 06/08/15.
@@ -39,6 +44,9 @@ public class PreConfiguration extends AppCompatActivity {
     private ProgressDialog _progressDialog;
     private SubjectsViewAdapter _subjectsViewAdapter;
 
+    private DbOpenHelper _db;
+    private SubjectsDTO _currentSubject;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,22 +56,21 @@ public class PreConfiguration extends AppCompatActivity {
 
         GetSubjects();
 
-
         _gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
                 ImageView iv_icon_like = (ImageView) view.findViewById(R.id.iv_icon_like);
-                //iv_icon_like.setSelected(!iv_icon_like.isSelected());
 
-
-                SubjectsDTO _subject = (SubjectsDTO) parent.getItemAtPosition(position);
-                _subject.setChecked(!iv_icon_like.isSelected());
+                _currentSubject = (SubjectsDTO) parent.getItemAtPosition(position);
+                _currentSubject.setChecked(!iv_icon_like.isSelected());
                 _subjectsViewAdapter.notifyDataSetChanged();
                 _gridview.invalidateViews();
 
-                Toast.makeText(PreConfiguration.this, _subject.getSubject(), Toast.LENGTH_SHORT).show();
+                // Add subject in sqlite
+                new Favorites().execute("Favorites");
+
+                //Toast.makeText(PreConfiguration.this, _subject.getSubject(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -85,9 +92,6 @@ public class PreConfiguration extends AppCompatActivity {
 
                 _progressDialog.dismiss();
 
-//                Preferences.setObjectPreference(getApplicationContext(), Preferences.LOGIN_PREFERENCES, _signinDTO);
-
-                //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -127,6 +131,8 @@ public class PreConfiguration extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         _gridview = (GridView) findViewById(R.id.gv_cards);
+
+        _db = new DbOpenHelper(getApplicationContext());
     }
 
     @Override
@@ -137,7 +143,6 @@ public class PreConfiguration extends AppCompatActivity {
         /*SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) menu.findItem(android.R.id.home).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));*/
-
 
         return true;
     }
@@ -154,5 +159,53 @@ public class PreConfiguration extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    class Favorites extends AsyncTask<String, Integer, Long> {
+
+        int _type; // 1 - Insert, 2 - Delete
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Long result) {
+            super.onPostExecute(result);
+
+            if (result > 0) {
+                if (_type == 1) {
+                    Toast.makeText(PreConfiguration.this, "Adicionado", Toast.LENGTH_SHORT).show();
+                } else if (_type == 2) {
+                    Toast.makeText(PreConfiguration.this, "Removido", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected Long doInBackground(String... params) {
+
+            DbSubjectsFavoritesHelper _dbFavorites = new DbSubjectsFavoritesHelper(_db);
+            long result = 0;
+
+
+            if (params[0] == "Favorites") {
+                if (_currentSubject.isChecked()) {
+                    result = _dbFavorites.Insert(_currentSubject);
+                    _type = 1;
+                } else {
+                    result = (_dbFavorites.Delete(_currentSubject) ? 1 : 0);
+                    _type = 2;
+                }
+            }
+
+            return result;
+        }
     }
 }

@@ -13,19 +13,19 @@ public class DbOpenHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 2;
 
     private static final StringBuilder ANSWER_TABLE_CREATE = new StringBuilder()
-            .append("CREATE TABLE IF NOT EXIST ANSWER ")
+            .append("CREATE TABLE IF NOT EXISTS ANSWER ")
             .append("(IdAnswer integer, Description text, IsCorrect numeric, ImagePath text);");
 
     private static final StringBuilder QUESTION_TABLE_CREATE = new StringBuilder()
-            .append("CREATE TABLE IF NOT EXIST QUESTION ")
+            .append("CREATE TABLE IF NOT EXISTS QUESTION ")
             .append("(Query text, Text text, Subject text);");
 
     private static final StringBuilder USER_TABLE_CREATE = new StringBuilder()
-            .append("CREATE TABLE IF NOT EXIST USER ")
+            .append("CREATE TABLE IF NOT EXISTS USER ")
             .append("(IdUser integer, Latitude text, Longitude text);");
 
     private static final StringBuilder SUBJECTS_FAVORITES_TABLE_CREATE = new StringBuilder()
-            .append("CREATE TABLE SUBJECTS_FAVORITES ")
+            .append("CREATE TABLE IF NOT EXISTS SUBJECTS_FAVORITES ")
             .append("(_id varchar(100), subject varchar(100));");
 
     public DbOpenHelper(Context context) {

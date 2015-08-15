@@ -20,7 +20,8 @@
         <activity
             android:name=".Splash_screen"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:icon="@mipmap/flatlogo1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

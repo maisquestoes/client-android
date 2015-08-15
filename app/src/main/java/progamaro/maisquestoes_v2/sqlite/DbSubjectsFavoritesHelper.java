@@ -24,11 +24,15 @@ public class DbSubjectsFavoritesHelper {
         this.database = helper.getWritableDatabase();
     }
 
-    public long InsertQuestion(SubjectsDTO subjectsDTO){
+    public long Insert(SubjectsDTO pSubjectsDTO){
         ContentValues values = new ContentValues(3);
-        values.put("_id", subjectsDTO.get_id());
-        values.put("subject",subjectsDTO.getSubject());
+        values.put("_id", pSubjectsDTO.get_id());
+        values.put("subject", pSubjectsDTO.getSubject());
         return this.database.insert("SUBJECTS_FAVORITES", String.valueOf(new String[]{"_id", "subject"}), values );
+    }
+
+    public boolean Delete(SubjectsDTO pSubjectDTO) {
+        return this.database.delete("SUBJECTS_FAVORITES", "_id ='" + pSubjectDTO.get_id() + "'", null) > 0;
     }
 
     public List<SubjectsDTO> GetSubjects(){
