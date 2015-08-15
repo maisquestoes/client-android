@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        card_view:cardCornerRadius="10dp">
+        card_view:cardCornerRadius="1dp">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -26,7 +26,7 @@
             android:background="@android:color/darker_gray"/>
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
             android:orientation="vertical">
@@ -42,14 +42,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Administração"
-                    android:textSize="18sp"/>
+                    android:textSize="16sp"/>
 
                 <TextView
-                    android:id="@+id/tv_favorites_material_2"
+                    android:id="@+id/tv_tab_subject_update"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#C4C4C4"
-                    android:layout_below="@id/tv_favorites_material"
+                    android:layout_below="@id/tv_tab_subjects_subject_description"
                     android:text="Atualizado em 13/09/2015 às 18:00"
                     android:layout_marginTop="1dp"
                     android:textSize="11sp"/>

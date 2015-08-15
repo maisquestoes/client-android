@@ -34,8 +34,12 @@ public class ListSubjectAdapter extends ArrayAdapter<SubjectsDTO> {
             LayoutInflater inflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.tab_subjects_subject, null);
             tv_tab_subjects_subject_description = (TextView) convertView.findViewById(R.id.tv_tab_subjects_subject_description);
+        }
 
+        SubjectsDTO obj = _subjects.get(position);
 
+        if(obj != null){
+            tv_tab_subjects_subject_description.setText(obj.getSubject());
         }
 
         return convertView;
