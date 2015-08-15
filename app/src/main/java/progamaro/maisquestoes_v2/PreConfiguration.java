@@ -53,10 +53,15 @@ public class PreConfiguration extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+
                 ImageView iv_icon_like = (ImageView) view.findViewById(R.id.iv_icon_like);
-                iv_icon_like.setSelected(!iv_icon_like.isSelected());
+                //iv_icon_like.setSelected(!iv_icon_like.isSelected());
+
 
                 SubjectsDTO _subject = (SubjectsDTO) parent.getItemAtPosition(position);
+                _subject.setChecked(!iv_icon_like.isSelected());
+                _subjectsViewAdapter.notifyDataSetChanged();
+                _gridview.invalidateViews();
 
                 Toast.makeText(PreConfiguration.this, _subject.getSubject(), Toast.LENGTH_SHORT).show();
             }
@@ -75,7 +80,7 @@ public class PreConfiguration extends AppCompatActivity {
 
                 List<SubjectsDTO> _listObjects = GsonHelper.fromJsonList(response, new SubjectsDTO());
 
-                _subjectsViewAdapter = new SubjectsViewAdapter(_listObjects, PreConfiguration.this);
+                _subjectsViewAdapter = new SubjectsViewAdapter(PreConfiguration.this,R.layout.card_subjects, _listObjects);
                 _gridview.setAdapter(_subjectsViewAdapter);
 
                 _progressDialog.dismiss();

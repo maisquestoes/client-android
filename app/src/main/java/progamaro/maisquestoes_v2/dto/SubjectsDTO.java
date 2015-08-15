@@ -7,6 +7,7 @@ public class SubjectsDTO {
     private String _id;
     private String created;
     private String subject;
+    private boolean checked;
 
     public SubjectsDTO() {
     }
@@ -39,5 +40,13 @@ public class SubjectsDTO {
 
     public void setCreated(String created) {
         this.created = created;
+    }
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
     }
 }
