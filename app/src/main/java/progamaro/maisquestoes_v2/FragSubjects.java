@@ -2,7 +2,7 @@ package progamaro.maisquestoes_v2;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -11,7 +11,7 @@ import android.widget.ListView;
 /**
  * Created by andremiranda on 14/08/15.
  */
-public class FragSubjects extends Fragment {
+public class FragSubjects extends ListFragment {
 
     private ListView lv_tab_subjects;
     private Button btn_tab_subjects;

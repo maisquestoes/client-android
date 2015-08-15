@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import progamaro.maisquestoes_v2.FragFavoritos;
+import progamaro.maisquestoes_v2.FragProfile;
 import progamaro.maisquestoes_v2.FragSubjects;
 
 /**
@@ -34,7 +35,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
                 frag = new FragSubjects();
                 break;
             case 2:
-                frag = new FragFavoritos();
+                frag = new FragProfile();
                 break;
         }
 

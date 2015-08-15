@@ -25,7 +25,7 @@
             android:layout_height="match_parent"
             android:background="@android:color/darker_gray"/>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
@@ -38,7 +38,7 @@
 
                 <TextView
                     android:textColor="#6e6e6e"
-                    android:id="@+id/tv_favorites_material"
+                    android:id="@+id/tv_tab_subjects_subject_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Administração"
@@ -64,7 +64,7 @@
 
             </RelativeLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
