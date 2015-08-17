@@ -25,6 +25,9 @@ import progamaro.maisquestoes_v2.dto.SubjectsDTO;
 import progamaro.maisquestoes_v2.helpers.GsonHelper;
 import progamaro.maisquestoes_v2.helpers.Preferences;
 import progamaro.maisquestoes_v2.helpers.Routes;
+import progamaro.maisquestoes_v2.sqlite.DbOpenHelper;
+import progamaro.maisquestoes_v2.sqlite.DbQuestionHelper;
+import progamaro.maisquestoes_v2.sqlite.DbSubjectsFavoritesHelper;
 
 /**
  * Created by andremiranda on 14/08/15.
@@ -41,9 +44,18 @@ public class FragSubjects extends android.support.v4.app.Fragment {
 
         init(view);
 
-        GetSubjects();
+//        GetSubjects();
+        GetSubjectsSqLite();
 
         return view;
+    }
+
+    private void GetSubjectsSqLite(){
+        DbSubjectsFavoritesHelper subjectsHelper = new DbSubjectsFavoritesHelper(new DbOpenHelper(getActivity()));
+        List<SubjectsDTO> subjects = subjectsHelper.GetSubjects();
+
+        _subjectAdapter = new ListSubjectAdapter(getActivity(),R.layout.tab_subjects_subject, subjects);
+        _lv_tab_subjects.setAdapter(_subjectAdapter);
     }
 
     private void GetSubjects() {
