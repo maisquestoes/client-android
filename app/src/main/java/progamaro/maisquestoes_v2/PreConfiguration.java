@@ -47,6 +47,8 @@ public class PreConfiguration extends AppCompatActivity {
     private DbOpenHelper _db;
     private SubjectsDTO _currentSubject;
 
+    private List<SubjectsDTO> _listObjects;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +70,7 @@ public class PreConfiguration extends AppCompatActivity {
                 _gridview.invalidateViews();
 
                 // Add subject in sqlite
-                new Favorites().execute("Favorites");
+                new Favorites().execute("Update");
 
                 //Toast.makeText(PreConfiguration.this, _subject.getSubject(), Toast.LENGTH_SHORT).show();
             }
@@ -85,14 +87,9 @@ public class PreConfiguration extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                List<SubjectsDTO> _listObjects = GsonHelper.fromJsonList(response, new SubjectsDTO());
+                _listObjects = GsonHelper.fromJsonList(response, new SubjectsDTO());
 
-                _subjectsViewAdapter = new SubjectsViewAdapter(PreConfiguration.this,R.layout.card_subjects, _listObjects);
-                _gridview.setAdapter(_subjectsViewAdapter);
-
-
-
-                _progressDialog.dismiss();
+                new Favorites().execute("InsertAll");
 
             }
         }, new Response.ErrorListener() {
@@ -165,7 +162,7 @@ public class PreConfiguration extends AppCompatActivity {
 
     class Favorites extends AsyncTask<String, Integer, Long> {
 
-        int _type; // 1 - Insert, 2 - Delete
+        int _type; // 1 - Insert, 2 - Delete, 3 - InsertAll
 
         @Override
         protected void onPreExecute() {
@@ -181,6 +178,11 @@ public class PreConfiguration extends AppCompatActivity {
                     Toast.makeText(PreConfiguration.this, "Adicionado", Toast.LENGTH_SHORT).show();
                 } else if (_type == 2) {
                     Toast.makeText(PreConfiguration.this, "Removido", Toast.LENGTH_SHORT).show();
+                } else if (_type == 3) {
+                    _subjectsViewAdapter = new SubjectsViewAdapter(PreConfiguration.this,R.layout.card_subjects, _listObjects);
+                    _gridview.setAdapter(_subjectsViewAdapter);
+
+                    _progressDialog.dismiss();
                 }
             }
         }
@@ -197,14 +199,21 @@ public class PreConfiguration extends AppCompatActivity {
             long result = 0;
 
 
-            if (params[0] == "Favorites") {
+            if (params[0] == "Update") {
                 if (_currentSubject.isChecked()) {
-                    result = _dbFavorites.Insert(_currentSubject);
+                    result = _dbFavorites.Update(_currentSubject);
                     _type = 1;
                 } else {
-                    result = (_dbFavorites.Delete(_currentSubject) ? 1 : 0);
+                    result = _dbFavorites.Update(_currentSubject);
                     _type = 2;
                 }
+            } else if (params[0] == "InsertAll"){
+                _type = 3;
+                _dbFavorites.DeleteAll();
+                for (SubjectsDTO item : _listObjects) {
+                    result = (_dbFavorites.Insert(item));
+                }
+                
             }
 
             return result;

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -37,6 +38,7 @@ public class ListSubjectAdapter extends ArrayAdapter<SubjectsDTO> {
 
             _holder = new ListSubjectHolder();
             _holder.tv_tab_subjects_subject = (TextView) convertView.findViewById(R.id.tv_tab_subjects_subject_description);
+            _holder.iv_tab_subject_favorite = (ImageView) convertView.findViewById(R.id.iv_tab_subject_favorite);
             convertView.setTag(_holder);
 
         }else{
@@ -47,6 +49,7 @@ public class ListSubjectAdapter extends ArrayAdapter<SubjectsDTO> {
 
         if(obj != null){
             _holder.tv_tab_subjects_subject.setText(obj.getSubject());
+            _holder.iv_tab_subject_favorite.setSelected(obj.isChecked());
         }
 
         return convertView;

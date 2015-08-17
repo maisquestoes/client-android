@@ -28,7 +28,7 @@ public class DbSubjectsFavoritesHelper {
         ContentValues values = new ContentValues(3);
         values.put("_id", pSubjectsDTO.get_id());
         values.put("subject", pSubjectsDTO.getSubject());
-        values.put("subject", 0);
+        values.put("ischecked", 0);
         return this.database.insert("SUBJECTS_FAVORITES", String.valueOf(new String[]{"_id", "subject, ischecked"}), values );
     }
 
@@ -36,8 +36,8 @@ public class DbSubjectsFavoritesHelper {
         ContentValues values = new ContentValues(3);
         values.put("_id", pSubjectsDTO.get_id());
         values.put("subject", pSubjectsDTO.getSubject());
-        values.put("subject", pSubjectsDTO.isChecked());
-        return this.database.update("SUBJECTS_FAVORITES", values, "_id = " + pSubjectsDTO.get_id(), null );
+        values.put("ischecked", pSubjectsDTO.isChecked());
+        return this.database.update("SUBJECTS_FAVORITES", values, "_id = '" + pSubjectsDTO.get_id() + "'", null );
     }
 
     public boolean Delete(SubjectsDTO pSubjectDTO) {
