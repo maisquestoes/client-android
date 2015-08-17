@@ -28,7 +28,16 @@ public class DbSubjectsFavoritesHelper {
         ContentValues values = new ContentValues(3);
         values.put("_id", pSubjectsDTO.get_id());
         values.put("subject", pSubjectsDTO.getSubject());
-        return this.database.insert("SUBJECTS_FAVORITES", String.valueOf(new String[]{"_id", "subject"}), values );
+        values.put("subject", 0);
+        return this.database.insert("SUBJECTS_FAVORITES", String.valueOf(new String[]{"_id", "subject, ischecked"}), values );
+    }
+
+    public long Update(SubjectsDTO pSubjectsDTO){
+        ContentValues values = new ContentValues(3);
+        values.put("_id", pSubjectsDTO.get_id());
+        values.put("subject", pSubjectsDTO.getSubject());
+        values.put("subject", pSubjectsDTO.isChecked());
+        return this.database.update("SUBJECTS_FAVORITES", values, "_id = " + pSubjectsDTO.get_id(), null );
     }
 
     public boolean Delete(SubjectsDTO pSubjectDTO) {
@@ -37,13 +46,14 @@ public class DbSubjectsFavoritesHelper {
 
     public List<SubjectsDTO> GetSubjects(){
         SubjectsDTO subjectsDTO = null;
-        Cursor result = database.query("SUBJECTS_FAVORITES", new String[]{"_id", "subject"},null,null,null,null,null);
+        Cursor result = database.query("SUBJECTS_FAVORITES", new String[]{"_id", "subject", "ischecked"},null,null,null,null,null);
         List<SubjectsDTO> lista = new ArrayList<SubjectsDTO>();
 
         while(result.moveToNext()){
             subjectsDTO = new SubjectsDTO();
             subjectsDTO.set_id(result.getString(result.getColumnIndex("_id")));
             subjectsDTO.setSubject(result.getString(result.getColumnIndex("subject")));
+            subjectsDTO.setChecked( (result.getInt(result.getColumnIndex("ischecked")) == 1 ? true : false) );
             lista.add(subjectsDTO);
         }
 
@@ -52,6 +62,8 @@ public class DbSubjectsFavoritesHelper {
 
         return lista;
     }
+
+
 
     public void DeleteAll(){
         database.delete("SUBJECTS_FAVORITES",null,null);

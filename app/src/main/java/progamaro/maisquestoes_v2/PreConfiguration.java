@@ -90,6 +90,8 @@ public class PreConfiguration extends AppCompatActivity {
                 _subjectsViewAdapter = new SubjectsViewAdapter(PreConfiguration.this,R.layout.card_subjects, _listObjects);
                 _gridview.setAdapter(_subjectsViewAdapter);
 
+
+
                 _progressDialog.dismiss();
 
             }

@@ -26,7 +26,7 @@ public class DbOpenHelper extends SQLiteOpenHelper {
 
     private static final StringBuilder SUBJECTS_FAVORITES_TABLE_CREATE = new StringBuilder()
             .append("CREATE TABLE IF NOT EXISTS SUBJECTS_FAVORITES ")
-            .append("(_id varchar(100), subject varchar(100));");
+            .append("(_id varchar(100), subject varchar(100), ischecked integer);");
 
     public DbOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
