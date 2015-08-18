@@ -84,7 +84,7 @@ public class FragSubjects extends android.support.v4.app.Fragment {
         DbSubjectsFavoritesHelper subjectsHelper = new DbSubjectsFavoritesHelper(new DbOpenHelper(getActivity()));
         List<SubjectsDTO> subjects = subjectsHelper.GetSubjects();
 
-        _subjectAdapter = new ListSubjectAdapter(getActivity(),R.layout.tab_subjects_subject, subjects);
+        _subjectAdapter = new ListSubjectAdapter(getActivity(),R.layout.tab_subjects_item, subjects);
         _lv_tab_subjects.setAdapter(_subjectAdapter);
     }
 
@@ -100,7 +100,7 @@ public class FragSubjects extends android.support.v4.app.Fragment {
 
                 List<SubjectsDTO> _listObjects = GsonHelper.fromJsonList(response, new SubjectsDTO());
 
-                _subjectAdapter = new ListSubjectAdapter(getActivity(),R.layout.tab_subjects_subject, _listObjects);
+                _subjectAdapter = new ListSubjectAdapter(getActivity(),R.layout.tab_subjects_item, _listObjects);
                 _lv_tab_subjects.setAdapter(_subjectAdapter);
 
 //                _progressDialog.dismiss();

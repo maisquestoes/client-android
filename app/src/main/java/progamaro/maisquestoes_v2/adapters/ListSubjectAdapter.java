@@ -1,21 +1,17 @@
 package progamaro.maisquestoes_v2.adapters;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
 import progamaro.maisquestoes_v2.R;
 import progamaro.maisquestoes_v2.dto.SubjectsDTO;
-import progamaro.maisquestoes_v2.sqlite.DbOpenHelper;
-import progamaro.maisquestoes_v2.sqlite.DbSubjectsFavoritesHelper;
 
 /**
  * Created by andremiranda on 14/08/15.
@@ -39,7 +35,7 @@ public class ListSubjectAdapter extends ArrayAdapter<SubjectsDTO> {
 
         if (convertView == null){
             LayoutInflater inflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.tab_subjects_subject, null);
+            convertView = inflater.inflate(R.layout.tab_subjects_item, null);
 
             _holder = new ListSubjectHolder();
             _holder.tv_tab_subjects_subject = (TextView) convertView.findViewById(R.id.tv_tab_subjects_subject_description);
