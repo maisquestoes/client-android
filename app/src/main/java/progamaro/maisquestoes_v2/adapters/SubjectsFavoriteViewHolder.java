@@ -1,6 +1,5 @@
 package progamaro.maisquestoes_v2.adapters;
 
-import android.support.v7.widget.CardView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;

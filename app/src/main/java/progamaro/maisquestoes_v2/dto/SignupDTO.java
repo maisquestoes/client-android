@@ -1,7 +1,6 @@
 package progamaro.maisquestoes_v2.dto;
 
 import android.content.Context;
-import android.content.res.Resources;
 
 import progamaro.maisquestoes_v2.R;
 

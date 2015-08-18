@@ -1,13 +1,9 @@
 package progamaro.maisquestoes_v2.adapters;
 
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import progamaro.maisquestoes_v2.R;
 
 /**
  * Created by andremiranda on 05/08/15.

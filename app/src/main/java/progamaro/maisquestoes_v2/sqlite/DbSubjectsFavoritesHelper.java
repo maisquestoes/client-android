@@ -4,13 +4,9 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.android.volley.Response;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import progamaro.maisquestoes_v2.domain.Question;
-import progamaro.maisquestoes_v2.dto.QuestionDTO;
 import progamaro.maisquestoes_v2.dto.SubjectsDTO;
 
 /**

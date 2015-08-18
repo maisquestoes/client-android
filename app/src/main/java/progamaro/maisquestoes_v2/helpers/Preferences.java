@@ -6,8 +6,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import progamaro.maisquestoes_v2.dto.SigninDTO;
-
 /**
  * Created by helio on 31/07/15.
  */
