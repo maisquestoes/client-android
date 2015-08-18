@@ -24,6 +24,7 @@ import java.util.Map;
 import progamaro.maisquestoes_v2.dto.SignupDTO;
 import progamaro.maisquestoes_v2.helpers.GsonHelper;
 import progamaro.maisquestoes_v2.helpers.Routes;
+import progamaro.maisquestoes_v2.helpers.VolleyApplication;
 
 /**
  * Created by helio on 28/07/15.

@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         />
 
-    <progamaro.maisquestoes_v2.SlidingTabLayout
+    <progamaro.maisquestoes_v2.helpers.SlidingTabLayout
         android:id="@+id/stl_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package progamaro.maisquestoes_v2;
+package progamaro.maisquestoes_v2.helpers;
 
 import android.R;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import progamaro.maisquestoes_v2.helpers.SlidingTabLayout;
 
 class SlidingTabStrip extends LinearLayout {
 

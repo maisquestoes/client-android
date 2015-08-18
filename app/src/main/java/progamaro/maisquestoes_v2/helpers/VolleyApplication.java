@@ -1,4 +1,4 @@
-package progamaro.maisquestoes_v2;
+package progamaro.maisquestoes_v2.helpers;
 
 import android.app.Application;
 import android.content.Context;

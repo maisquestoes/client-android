@@ -1,15 +1,11 @@
 package progamaro.maisquestoes_v2;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Space;
 
 import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
 import com.facebook.FacebookSdk;
 
 import progamaro.maisquestoes_v2.dto.SigninDTO;
@@ -18,7 +14,7 @@ import progamaro.maisquestoes_v2.helpers.Preferences;
 /**
  * Created by helio on 18/07/15.
  */
-public class Splash_screen extends Activity {
+public class SplashScreen extends Activity {
 
     private static final int SPLASH_TIME_OUT = 3000;
 
@@ -102,7 +98,7 @@ public class Splash_screen extends Activity {
                     } catch (InterruptedException e){
                         e.printStackTrace();
                     } finally {
-                        Intent it = new Intent(Splash_screen.this, MainActivity_Drawer.class);
+                        Intent it = new Intent(SplashScreen.this, MainActivity_Drawer.class);
                         //Intent it = new Intent(Splash_screen.this, SigninPreview.class);
                         startActivity(it);
                         finish();
@@ -111,7 +107,7 @@ public class Splash_screen extends Activity {
             };
             _thread.start();
         } else {
-            SigninDTO _signDTO = (SigninDTO) Preferences.getObjectPreference(Splash_screen.this, Preferences.LOGIN_PREFERENCES, new SigninDTO());
+            SigninDTO _signDTO = (SigninDTO) Preferences.getObjectPreference(SplashScreen.this, Preferences.LOGIN_PREFERENCES, new SigninDTO());
             if (_signDTO != null) {
 
                 Thread _thread = new Thread() {
@@ -122,7 +118,7 @@ public class Splash_screen extends Activity {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         } finally {
-                            Intent it = new Intent(Splash_screen.this, MainActivity_Drawer.class);
+                            Intent it = new Intent(SplashScreen.this, MainActivity_Drawer.class);
                             startActivity(it);
                             finish();
                         }
@@ -141,7 +137,7 @@ public class Splash_screen extends Activity {
                             e.printStackTrace();
                         } finally {
                             //Intent it = new Intent(Splash_screen.this, SigninPreview.class);
-                            Intent it = new Intent(Splash_screen.this, PreConfiguration.class);
+                            Intent it = new Intent(SplashScreen.this, PreConfiguration.class);
                             startActivity(it);
                             finish();
                         }

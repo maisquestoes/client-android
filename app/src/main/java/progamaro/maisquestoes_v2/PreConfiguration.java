@@ -2,7 +2,6 @@ package progamaro.maisquestoes_v2;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.YuvImage;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -30,8 +29,8 @@ import progamaro.maisquestoes_v2.dto.SubjectsDTO;
 import progamaro.maisquestoes_v2.helpers.GsonHelper;
 import progamaro.maisquestoes_v2.helpers.Preferences;
 import progamaro.maisquestoes_v2.helpers.Routes;
+import progamaro.maisquestoes_v2.helpers.VolleyApplication;
 import progamaro.maisquestoes_v2.sqlite.DbOpenHelper;
-import progamaro.maisquestoes_v2.sqlite.DbQuestionHelper;
 import progamaro.maisquestoes_v2.sqlite.DbSubjectsFavoritesHelper;
 
 /**
