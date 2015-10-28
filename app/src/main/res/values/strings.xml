@@ -44,5 +44,10 @@
     <string name="search_hint">Pesquisar</string>
     <string name="str_login_preview_signinfb">INICIAR COM FACEBOOK</string>
     <string name="msg_load">Carregando</string>
+    <string name="str_toolbar_question_subjects">Administração Geral</string>
+    <string name="str_questions_cont">01 de 50</string>
+    <string name="str_questions_chrono">00:01:20</string>
+    <string name="str_answer">estudar os movimentos necessários para a execução de uma tarefa com o intuito de simplificá-los e reduzí-los ao mínimo</string>
+    <string name="ac_question">Questão</string>
 
 </resources>

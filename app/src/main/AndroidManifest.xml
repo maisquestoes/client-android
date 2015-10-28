@@ -17,6 +17,7 @@
         <activity android:name=".Signup" android:parentActivityName=".SigninPreview" android:label="@string/ac_signup" />
         <activity android:name=".SigninPreview" android:label="@string/ac_login"  android:theme="@style/SigninPreview"/>
         <activity android:name=".PreConfiguration" android:label="@string/ac_preconfiguration" android:theme="@style/statusbar_transparent" />
+        <activity android:name=".Question_Answers" android:label="@string/ac_question"  />
         <activity
             android:name=".SplashScreen"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"

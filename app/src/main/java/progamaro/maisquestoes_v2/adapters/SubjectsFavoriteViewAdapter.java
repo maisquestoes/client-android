@@ -1,15 +1,18 @@
 package progamaro.maisquestoes_v2.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
+import progamaro.maisquestoes_v2.Question_Answers;
 import progamaro.maisquestoes_v2.R;
 import progamaro.maisquestoes_v2.dto.SubjectsDTO;
 
@@ -51,6 +54,14 @@ public class SubjectsFavoriteViewAdapter extends ArrayAdapter<SubjectsDTO> {
         if (obj != null) {
             _holder.tv_favorite_subject.setText(obj.getSubject());
             _holder.tv_favorite_subject_description.setText(obj.getSubject());
+
+            _holder.ll_favorite_card_subjects.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(_context, "por aqui clica", Toast.LENGTH_SHORT).show();
+                    _context.startActivity(new Intent(_context, Question_Answers.class));
+                }
+            });
         }
 
         return convertView;

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_question">
+
+    <include
+        android:id="@+id/inc_header_question_toolbar"
+        layout="@layout/toolbar_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_questions_subheader"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@color/background_subheader"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tv_question_cont"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:text="@string/str_questions_cont"/>
+
+        <TextView
+            android:id="@+id/tv_question_chrono"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="@string/str_questions_chrono"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_question_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Os desafios de eficiência e escala impostos pela consolidação do processo de industrialização ao final do século XIX tiveram como resposta a sistematização de um conjunto de técnicas e procedimentos de gestão, posteriormente denominado pelos historiadores econômicos como escola clássica de administração científica, teve como característica:"
+            android:textSize="18sp"
+            android:textColor="@color/md_black_1000"
+            android:textStyle="bold"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_questions_answers"
+            android:layout_marginTop="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

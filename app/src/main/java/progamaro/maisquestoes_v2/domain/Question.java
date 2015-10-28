@@ -1,5 +1,7 @@
 package progamaro.maisquestoes_v2.domain;
 
+import java.util.List;
+
 /**
  * Created by andremiranda on 25/07/15.
  */
@@ -7,7 +9,7 @@ public class Question {
     private String id;
     private String query;
     private String text;
-    private Answer aswers;
+    private List<Answer> aswers;
     private String[] subjects;
     private String[] roles;
     private enum type {
@@ -18,7 +20,7 @@ public class Question {
     public Question() {
     }
 
-    public Question(String id, String query, String text, Answer aswers, String[] subjects, String[] roles, Role role) {
+    public Question(String id, String query, String text, List<Answer> aswers, String[] subjects, String[] roles, Role role) {
         this.id = id;
         this.query = query;
         this.text = text;
@@ -52,11 +54,11 @@ public class Question {
         this.text = text;
     }
 
-    public Answer getAswers() {
+    public List<Answer> getAswers() {
         return aswers;
     }
 
-    public void setAswers(Answer aswers) {
+    public void setAswers(List<Answer> aswers) {
         this.aswers = aswers;
     }
 

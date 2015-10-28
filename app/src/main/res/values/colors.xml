@@ -24,6 +24,8 @@
     <color name="card_subject">#282828</color>
     <color name="card_subject_description">#CCCCCC</color>
     <color name="background_activities">#FAFAFA</color>
+    <color name="background_subheader">#F2F2F2</color>
+    <color name="background_question">#FAFAFA</color>
 
     <color name="tabs_title">#FAFAFA</color>
 
