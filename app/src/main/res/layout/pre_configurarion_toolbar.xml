@@ -22,9 +22,16 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/preconfiguration_toolbar"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_width="match_parent"
             app:theme="@style/toolbar_transparent">
+
+            <SearchView android:id="@+id/pre_action_search"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:title="Pesquisar"
+                app:showAsAction="never"
+                app:actionViewClass="android.widget.SearchView" />
 
             <TextView
                 android:layout_width="fill_parent"
@@ -36,8 +43,6 @@
 
         </android.support.v7.widget.Toolbar>
 
-
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,7 +51,6 @@
             android:layout_marginBottom="5dp"
             style="@style/preconfiguration_textview"
             android:text="Configure seu material de estudo de acordo com sua necessidade"/>
-
 
     </LinearLayout>
 

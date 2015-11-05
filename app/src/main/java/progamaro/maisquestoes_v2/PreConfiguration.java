@@ -1,17 +1,20 @@
 package progamaro.maisquestoes_v2;
 
 import android.app.ProgressDialog;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -20,6 +23,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import java.text.Normalizer;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,6 +59,7 @@ public class PreConfiguration extends AppCompatActivity {
         setContentView(R.layout.pre_configuration);
 
         init();
+        initSearchView();
 
         GetSubjects();
 
@@ -119,28 +125,93 @@ public class PreConfiguration extends AppCompatActivity {
         _progressDialog.show();
     }
 
+    public void initSearchView(){
+
+        SearchView searchView = (SearchView) findViewById(R.id.pre_action_search);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setFocusable(true);
+        searchView.requestFocus();
+        searchView.setIconified(false);
+        searchView.onActionViewCollapsed();
+
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                ((SearchView) findViewById(R.id.pre_action_search)).onActionViewCollapsed();
+                return true;
+            }
+        });
+
+        SearchView.OnQueryTextListener textChangeListener = new SearchView.OnQueryTextListener()
+        {
+            @Override
+            public boolean onQueryTextChange(String newText)
+            {
+                List<SubjectsDTO> newSubjects = new ArrayList<>();
+
+                for(SubjectsDTO s : _listObjects){
+                    if(s.getSubject() != null && removeDiacriticalMarks(s.getSubject().toLowerCase()).contains(newText.toLowerCase()))
+                        newSubjects.add(s);
+                }
+
+                _subjectsViewAdapter = new SubjectsViewAdapter(PreConfiguration.this,R.layout.card_subjects, newSubjects);
+                _gridview.setAdapter(_subjectsViewAdapter);
+
+                return false;
+            }
+            @Override
+            public boolean onQueryTextSubmit(String query)
+            {
+                List<SubjectsDTO> newSubjects = new ArrayList<>();
+
+                for(SubjectsDTO s : _listObjects){
+                    if(s.getSubject() != null && removeDiacriticalMarks(s.getSubject().toLowerCase()).contains(query.toLowerCase()))
+                        newSubjects.add(s);
+                }
+
+                _subjectsViewAdapter = new SubjectsViewAdapter(PreConfiguration.this,R.layout.card_subjects, newSubjects);
+                _gridview.setAdapter(_subjectsViewAdapter);
+
+                return false;
+            }
+        };
+        searchView.setOnQueryTextListener(textChangeListener);
+    }
+
     public void init(){
         _toolbar = (Toolbar) findViewById(R.id.preconfiguration_toolbar);
 
         setSupportActionBar(_toolbar);
-        _toolbar.setNavigationIcon(R.mipmap.ic_search);
+//        _toolbar.setNavigationIcon(R.mipmap.ic_search);
         _toolbar.setTitle("Pré Configuração");
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        mStatusView = new TextView(this);
+//        mStatusView.setPadding(10, 10, 10, 10);
+//        mStatusView.setText("Action Bar Usage example from CoderzHeaven");
+
+
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+//        getSupportActionBar().setDisplayShowHomeEnabled(false);   //disable back button
+//        getSupportActionBar().setHomeButtonEnabled(false);
 
         _gridview = (GridView) findViewById(R.id.gv_cards);
 
         _db = new DbOpenHelper(getApplicationContext());
     }
 
+    public static String removeDiacriticalMarks(String string) {
+        return Normalizer.normalize(string, Normalizer.Form.NFD)
+                .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+    }
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(final Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.pre_menu, menu);
-
-        /*SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(android.R.id.home).getActionView();
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));*/
 
         return true;
     }
@@ -151,10 +222,11 @@ public class PreConfiguration extends AppCompatActivity {
 
         if (id == R.id.action_forward) {
             startActivity(new Intent(PreConfiguration.this, MainActivity_Drawer.class));
+            finish();
         }
-        if (id == android.R.id.home) {
-            Toast.makeText(this, "teste home button", Toast.LENGTH_SHORT).show();
-        }
+//        if (id == android.R.id.home) {
+//            Toast.makeText(this, "teste home button", Toast.LENGTH_SHORT).show();
+//        }
 
         return super.onOptionsItemSelected(item);
     }

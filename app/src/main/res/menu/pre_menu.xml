@@ -3,11 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".PreConfiguration">
 
+    <!--<item android:id="@+id/pre_action_search"-->
+        <!--android:icon="@mipmap/ic_search"-->
+        <!--android:title="Action Bar Search"-->
+        <!--app:showAsAction="collapseActionView|always"-->
+        <!--app:actionViewClass="android.widget.SearchView" />-->
+
     <item
         android:id="@+id/action_forward"
         android:icon="@mipmap/ic_forward"
         android:menuCategory="secondary"
-        app:showAsAction="ifRoom"
-        android:title="forward"/>
+        app:showAsAction="always"
+        android:title="Next"
+        />
 
 </menu>
