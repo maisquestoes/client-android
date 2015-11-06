@@ -24,7 +24,7 @@ import progamaro.maisquestoes_v2.helpers.SlidingTabLayout;
 /**
  * Created by helio on 22/07/15.
  */
-public class MainActivity_Drawer extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     //private NavigationView _navigation_view;
     private DrawerLayout _drawer_layout;
@@ -70,22 +70,24 @@ public class MainActivity_Drawer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.drawer_layout);
+        setContentView(R.layout.main);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
 
         _toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(_toolbar);
-        _toolbar.setNavigationIcon(getResources().getDrawable(R.mipmap.ic_search));
+//        _toolbar.setNavigationIcon(getResources().getDrawable(R.mipmap.ic_search));
 
-        _drawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        _drawer_layout = (DrawerLayout) findViewById(R.id.main);
 
         /*ActionBar _actionbar = getSupportActionBar();
         _actionbar.setDisplayHomeAsUpEnabled(true);
         _actionbar.setHomeAsUpIndicator(getResources().getDrawable(R.mipmap.ic_search));*/
 
+//        InitSearchView();
+
         // TABS
-        _TabsAdapter = new TabsAdapter(getSupportFragmentManager(), MainActivity_Drawer.this);
+        _TabsAdapter = new TabsAdapter(getSupportFragmentManager(), MainActivity.this);
         _ViewPager = (ViewPager)findViewById(R.id.vp_tabs);
         _ViewPager.setAdapter(_TabsAdapter);
 
@@ -204,9 +206,19 @@ public class MainActivity_Drawer extends AppCompatActivity {
         _navigationDrawerLeft.addItem(new SwitchDrawerItem().withName("Notificação").withChecked(true).withOnCheckedChangeListener(_OnCheckedChangeListener));
         _navigationDrawerLeft.addItem(new ToggleDrawerItem().withName("News").withChecked(true).withOnCheckedChangeListener(_OnCheckedChangeListener));*/
 
-
-
     }
+
+//    private void InitSearchView(){
+//        SearchView searchView = (SearchView) findViewById(R.id.main_action_search);
+//
+//        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+//
+//        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+//        searchView.setFocusable(true);
+//        searchView.requestFocus();
+//        searchView.setIconified(false);
+//        searchView.onActionViewCollapsed();
+//    }
 
     private void Logout() {
         // get provider shared preferences
@@ -214,7 +226,7 @@ public class MainActivity_Drawer extends AppCompatActivity {
 
         LoginManager.getInstance().logOut();
 
-        startActivity(new Intent(MainActivity_Drawer.this, SigninPreview.class));
+        startActivity(new Intent(MainActivity.this, SigninPreview.class));
         finish();
     }
 
@@ -223,10 +235,10 @@ public class MainActivity_Drawer extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 //_drawer_layout.openDrawer(GravityCompat.START);
-                Toast.makeText(MainActivity_Drawer.this, "Pesquisar", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Pesquisar", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_logout:
-                Toast.makeText(MainActivity_Drawer.this, "Saindo", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Saindo", Toast.LENGTH_LONG).show();
                 Logout();
             default:
                 return super.onOptionsItemSelected(item);
