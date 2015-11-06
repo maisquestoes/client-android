@@ -98,7 +98,7 @@ public class SplashScreen extends Activity {
                     } catch (InterruptedException e){
                         e.printStackTrace();
                     } finally {
-                        Intent it = new Intent(SplashScreen.this, MainActivity_Drawer.class);
+                        Intent it = new Intent(SplashScreen.this, MainActivity.class);
                         //Intent it = new Intent(Splash_screen.this, SigninPreview.class);
                         startActivity(it);
                         finish();
@@ -118,7 +118,7 @@ public class SplashScreen extends Activity {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         } finally {
-                            Intent it = new Intent(SplashScreen.this, MainActivity_Drawer.class);
+                            Intent it = new Intent(SplashScreen.this, MainActivity.class);
                             startActivity(it);
                             finish();
                         }

@@ -221,7 +221,7 @@ public class PreConfiguration extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_forward) {
-            startActivity(new Intent(PreConfiguration.this, MainActivity_Drawer.class));
+            startActivity(new Intent(PreConfiguration.this, MainActivity.class));
             finish();
         }
 //        if (id == android.R.id.home) {
