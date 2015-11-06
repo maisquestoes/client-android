@@ -26,6 +26,7 @@
     <color name="background_activities">#FAFAFA</color>
     <color name="background_subheader">#F2F2F2</color>
     <color name="background_question">#FAFAFA</color>
+    <color name="background_question_pressed">#FFCCCCCC</color>
 
     <color name="tabs_title">#FAFAFA</color>
 

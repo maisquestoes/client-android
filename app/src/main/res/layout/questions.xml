@@ -3,8 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_question">
+    android:layout_height="match_parent">
 
     <include
         android:id="@+id/inc_header_question_toolbar"
@@ -61,7 +60,8 @@
             android:id="@+id/rv_questions_answers"
             android:layout_marginTop="10dp"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            >
 
         </android.support.v7.widget.RecyclerView>
 

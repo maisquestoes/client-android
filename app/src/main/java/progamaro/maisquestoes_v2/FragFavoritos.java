@@ -52,7 +52,7 @@ public class FragFavoritos extends Fragment {
 
         new Favorites().execute("list");
 
-        _iv_favorites_material.setOnClickListener(new View.OnClickListener() {
+/*        _iv_favorites_material.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "aqui clica", Toast.LENGTH_SHORT).show();
@@ -64,7 +64,7 @@ public class FragFavoritos extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getActivity(), "nao clica", Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
         /*_gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

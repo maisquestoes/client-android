@@ -66,12 +66,12 @@ public class DbSubjectsFavoritesHelper {
     }
 
     /*public void InsertQuestion(){
-        Question_Answers q1 = new Question_Answers();
+        QuestionActivity q1 = new QuestionActivity();
         q1.setQuery("Query 1");
         q1.setText("Text1");
         q1.setSubjects(new String[]{"subject1", "subject2"});
 
-        Question_Answers q2 = new Question_Answers();
+        QuestionActivity q2 = new QuestionActivity();
         q2.setQuery("Query 2");
         q2.setText("Text2");
         q2.setSubjects(new String[]{"subject3", "subject4"});

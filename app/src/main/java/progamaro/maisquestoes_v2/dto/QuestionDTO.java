@@ -1,54 +1,66 @@
 package progamaro.maisquestoes_v2.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by andremiranda on 25/07/15.
  */
 public class QuestionDTO {
-    public String headerText;
-    public String questionText;
-    public String[] questionAswers;
+
+    public String _id;
+    public String query;
+    public ArrayList<AnswerDTO> answers;
+    public QuestionTimeDTO time;
     public String[] questionImages;
-    public String subject;
-    public String[] subjectTags;
+    public String type;
+    public String miss;
+    public String hits;
 
-    public String getSubject() {
-        return subject;
+    public QuestionDTO() {
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public QuestionDTO(String _id, String query, ArrayList<AnswerDTO> answers, QuestionTimeDTO time, String[] questionImages, String type, String miss, String hits) {
+        this._id = _id;
+        this.query = query;
+        this.answers = answers;
+        this.time = time;
+        this.questionImages = questionImages;
+        this.type = type;
+        this.miss = miss;
+        this.hits = hits;
     }
 
-    public String[] getSubjectTags() {
-        return subjectTags;
+    public String get_id() {
+        return _id;
     }
 
-    public void setSubjectTags(String[] subjectTags) {
-        this.subjectTags = subjectTags;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
-    public String getHeaderText() {
-        return headerText;
+    public String getQuery() {
+        return query;
     }
 
-    public void setHeaderText(String headerText) {
-        this.headerText = headerText;
+    public void setQuery(String query) {
+        this.query = query;
     }
 
-    public String getQuestionText() {
-        return questionText;
+    public List<AnswerDTO> getAnswers() {
+        return answers;
     }
 
-    public void setQuestionText(String questionText) {
-        this.questionText = questionText;
+    public void setAnswers(ArrayList<AnswerDTO> answers) {
+        this.answers = answers;
     }
 
-    public String[] getQuestionAswers() {
-        return questionAswers;
+    public QuestionTimeDTO getTime() {
+        return time;
     }
 
-    public void setQuestionAswers(String[] questionAswers) {
-        this.questionAswers = questionAswers;
+    public void setTime(QuestionTimeDTO time) {
+        this.time = time;
     }
 
     public String[] getQuestionImages() {
@@ -57,5 +69,29 @@ public class QuestionDTO {
 
     public void setQuestionImages(String[] questionImages) {
         this.questionImages = questionImages;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getMiss() {
+        return miss;
+    }
+
+    public void setMiss(String miss) {
+        this.miss = miss;
+    }
+
+    public String getHits() {
+        return hits;
+    }
+
+    public void setHits(String hits) {
+        this.hits = hits;
     }
 }

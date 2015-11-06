@@ -16,19 +16,8 @@
         <activity android:name=".Signin" android:parentActivityName=".SigninPreview" android:label="@string/ac_login" />
         <activity android:name=".Signup" android:parentActivityName=".SigninPreview" android:label="@string/ac_signup" />
         <activity android:name=".SigninPreview" android:label="@string/ac_login"  android:theme="@style/SigninPreview"/>
-
-        <activity android:name=".PreConfiguration" android:label="@string/ac_preconfiguration" android:theme="@style/statusbar_transparent">
-
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
-        </activity>
-
-        <activity android:name=".Question_Answers" android:label="@string/ac_question"  />
+        <activity android:name=".PreConfiguration" android:label="@string/ac_preconfiguration" android:theme="@style/statusbar_transparent" />
+        <activity android:name=".QuestionActivity" android:label="@string/ac_question"  />
         <activity
             android:name=".SplashScreen"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"

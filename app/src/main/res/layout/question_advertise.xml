@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#000"
+    android:padding="8dp"
+    >
+
+    <TextView
+        android:id="@+id/tv_advertise_text1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#000"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="@string/str_advertise_text1"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/iv_advertise_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/tv_advertise_text1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:src="@mipmap/flatlogo1" />
+
+    <TextView
+        android:id="@+id/tv_advertise_text2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/iv_advertise_logo"
+        android:background="#000"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="@string/str_advertise_text2"
+        android:textColor="@color/white"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:id="@+id/tv_advertise_text3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tv_advertise_text2"
+        android:background="#000"
+        android:gravity="center_horizontal"
+        android:text="@string/str_advertise_text3"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/tv_advertise_text4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_advertise_text3"
+        android:background="#000"
+        android:gravity="center_horizontal"
+        android:text="@string/str_advertise_text4"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/tv_advertise_text4"
+        android:text="@string/str_advertise_button"/>
+
+</RelativeLayout>

@@ -49,5 +49,10 @@
     <string name="str_questions_chrono">00:01:20</string>
     <string name="str_answer">estudar os movimentos necessários para a execução de uma tarefa com o intuito de simplificá-los e reduzí-los ao mínimo</string>
     <string name="ac_question">Questão</string>
+    <string name="str_advertise_text2">Música sem limites</string>
+    <string name="str_advertise_text1">FAÇA UPGRADE PARA TOCAR QUALQUER MÚSICA</string>
+    <string name="str_advertise_text3">Com o premium, você pode tocar qualquer música, a qualquer hora.</string>
+    <string name="str_advertise_text4">Sem propaganda. Sem restrições.</string>
+    <string name="str_advertise_button">TENHA OS PRIMEIROS 30 DIAS DE GRAÇA</string>
 
 </resources>
